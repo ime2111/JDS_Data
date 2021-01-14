@@ -1,0 +1,235 @@
+
+<!-- saved from url=(0038)https://www.stata.com/help.cgi?varlist -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<title>Stata 16 help for varlist</title>
+<link rel="stylesheet" href="./varname varlist_files/stylehelp.css" type="text/css">
+
+<style type="text/css">
+h2 {
+font-family: Arial,Helvetica,Helv,sans-serif;
+color: #000000;
+}
+pre {
+margin: 10px;
+}
+
+body {
+  background: #fafafa;
+  margin: 0px;
+}
+
+div#menu {
+  height: 41px;
+  background-color: #FFFFFF;
+  color: #d9d7d5;
+  margin: 0px;
+  padding: 0px;
+  left: 0px;
+  width: 100%;
+  box-sizing: border-box;
+  border-bottom: solid 1px #d9d7d5;
+  text-align: left;
+}
+
+div#menu img {
+  padding: 0px;
+  margin-top: 7.3px;
+  margin-bottom: 0px;
+  margin-left: 8px;
+  vertical-align: bottom;
+}
+</style>
+</head>
+<body>
+<div id="menu">
+<img width="104" src="./varname varlist_files/stata-logo-blue.svg" alt="Stata">
+</div>
+<p>
+<table align="center" border="1" cellpadding="5" cellspacing="0" bgcolor="#FFFFFF">
+<tbody><tr bgcolor="#FFFFFF"><td valign="top" align="left" bgcolor="#FFFFFF">
+<!-- END HEAD -->
+<h2>Stata 16 help for varlist</h2>
+<pre><p>
+<b><u>Title</u></b>
+</p><p>
+    <b>[U] 11.4 varname and varlists</b>
+</p><p>
+</p><p>
+<a name="description"></a><b><u>Description</u></b>
+</p><p>
+    A <i>varlist</i> is a list of variable names.  The variable names in a <i>varlist</i>
+    refer either exclusively to new (not yet created) variables or
+    exclusively to existing variables. A <a href="https://www.stata.com/help.cgi?newvarlist"><i>newvarlist</i></a> always refers exclusively
+    to new (not yet created) variables.  Similarly, a <i>varname</i> refers to one
+    variable, either existing or not yet created.  A <i>newvar</i> always refers to
+    one new variable.
+</p><p>
+    Sometimes a command will refer to a varname in another way, such as
+    "<i>groupvar</i>".  This is still a varname.  The different name is used to give
+    you an extra hint about the purpose of that variable.  For example, a
+    <i>groupvar</i> is the name of a variable that defines groups within your data.
+    Other common ways of referring to a <i>varname</i> or <i>varlist</i> in Stata are
+</p><p>
+        <i>depvar</i>, which means the dependent variable for an estimation command;
+</p><p>
+        <i>indepvars</i>, which means a <i>varlist</i> containing the independent variables
+            for an estimation command;
+</p><p>
+        <i>xvar</i>, which means a continuous real variable, often plotted on the x
+            axis of a graph;
+</p><p>
+        <i>yvar</i>, which means a variable that is a function of an <i>xvar</i>, often
+            plotted on the y axis of a graph;
+</p><p>
+        <i>clustvar</i>, which means a numeric variable that identifies the cluster
+            or group to which an observation belongs;
+</p><p>
+        <i>panelvar</i>, which means a numeric variable that identifies panels in
+            panel data, also known as cross-sectional time-series data; and
+</p><p>
+        <i>timevar</i>, which means a numeric variable with a <b>%td</b>, <b>%tc</b>, or <b>%tC</b>
+            format.
+</p><p>
+    Examples include
+</p><p>
+        <b>myvar</b>                   just one variable
+        <b>myvar thisvar thatvar</b>   three variables
+        <b>myvar*</b>                  variables starting with <b>myvar</b>
+        <b>*var</b>                    variables ending with <b>var</b>
+        <b>my*var</b>                  variables starting with <b>my</b> &amp; ending with <b>var</b>
+                                  with any number of other characters between
+        <b>my~var</b>                  one variable starting with <b>my</b> &amp; ending with
+                                  <b>var</b> with any number of other characters
+                                  between
+        <b>my?var</b>                  variables starting with <b>my</b> &amp; ending with <b>var</b>
+                                  with one other character between
+        <b>myvar1-myvar6</b>           <b>myvar1</b>, <b>myvar2</b>, ..., <b>myvar6</b> (probably)
+        <b>this-that</b>               variables <b>this</b> through <b>that</b>, inclusive
+</p><p>
+    The <b>*</b> character indicates to match one or more characters.  All variables
+    matching the pattern are returned.
+</p><p>
+    The <b>~</b> character also indicates to match one or more characters, but
+    unlike <b>*</b>, only one variable is allowed to match.  If more than one
+    variable matches, an error message is presented.
+</p><p>
+    The <b>?</b> character matches one character.  All variables matching the
+    pattern are returned.
+</p><p>
+    The <b>-</b> character indicates that all variables in the dataset, starting
+    with the variable to the left of the <b>-</b> and ending with the variable to
+    the right of the <b>-</b> are to be returned.
+</p><p>
+</p><p>
+    Many commands understand the keyword <b>_all</b> to mean all variables.  Some
+    commands default to using all variables if none are specified.
+</p><p>
+</p><p>
+    Factor variables are extensions of varlists of existing variables.  When
+    a command allows factor variables, in addition to typing variable names
+    from your data, you can type factor variables using factor-variable
+    operators.
+</p><p>
+    Factor variables create indicator variables from categorical variables,
+    interactions of indicators of categorical variables, interactions of
+    categorical and continuous variables, and interactions of continuous
+    variables (polynomials).
+</p><p>
+    There are five factor-variable operators:
+</p><p>
+         Operator  Description
+         --------------------------------------------------------------------
+         <b>i.</b>        unary operator to specify indicators
+         <b>c.</b>        unary operator to treat as continuous
+         <b>o.</b>        unary operator to omit a variable or indicator
+         <b>#</b>         binary operator to specify interactions
+         <b>##</b>        binary operator to specify factorial interactions
+         --------------------------------------------------------------------
+</p><p>
+    For complete syntax and usage of factor variables, see <a href="https://www.stata.com/help.cgi?fvvarlist">fvvarlist</a>.
+</p><p>
+</p><p>
+    Time-series <i>varlists</i> are a variation on <i>varlists</i> of existing variables.
+    When a command allows a time-series <i>varlist</i>, you may include time-series
+    operators.  For instance, <b>L.gnp</b> refers to the lagged value of variable
+    <b>gnp</b>.  The time-series operators are
+</p><p>
+        Operator  Meaning
+        ---------------------------------------------------------
+        <b>L.</b>        lag (x_t-1)
+        <b>L2.</b>       2-period lag (x_t-2)
+        ...
+        <b>F.</b>        lead (x_t+1)
+        <b>F2.</b>       2-period lead (x_t+2)
+        ...
+        <b>D.</b>        difference (x_t - x_t-1)
+        <b>D2.</b>       difference of difference (x_t - 2x_t-1 + x_t-2)
+        ...
+        <b>S.</b>        "seasonal" difference (x_t - x_t-1)
+        <b>S2.</b>       lag-2 (seasonal) difference (x_t - x_t-2)
+        ...
+        ---------------------------------------------------------
+</p><p>
+    Time-series operators may be repeated and combined and both lowercase and
+    uppercase letters are understood.  For more details, see help <a href="https://www.stata.com/help.cgi?tsvarlist">tsvarlist</a>.
+</p><p>
+</p><p>
+<a name="examples"></a><b><u>Examples</u></b>
+</p><p>
+    <b>. webuse census4</b>
+    <b>. describe</b>
+</p><p>
+    These four <b>regress</b> commands are equivalent.
+    <b>. regress brate medage medagesq reg2 reg3 reg4</b>
+    <b>. regress brate medage medagesq reg2-reg4</b>
+    <b>. regress brate med* reg2-reg4</b>
+    <b>. regress brate medage c.medage#c.medage i.region</b>
+</p><p>
+    <b>. summarize _all</b>
+</p><p>
+    <b>. sysuse citytemp</b>
+    <b>. describe</b>
+</p><p>
+    <b>. summarize *dd</b>
+    <b>. summarize temp*</b>
+    <b>. summarize temp???</b>
+    <b>. summarize t*n</b>
+</p><p>
+    <b>. webuse fvex</b>
+    <b>. describe</b>
+</p><p>
+    <b>. regress y distance i.group</b>
+    <b>. regress y i.sex sex#c.distance</b>
+</p><p>
+    These two commands are equivalent.
+    <b>. regress y distance i.sex i.group sex#group</b>
+    <b>. regress y distance sex##group</b>
+</p><p>
+</p></pre>
+<!-- BEGIN FOOT -->
+</td></tr></tbody></table>
+</p><hr color="#d9d7d5">
+<table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tbody><tr>
+<td valign="top" align="center">
+<font face="arial,helvetica,helv,sans-serif" size="1">
+© <a href="https://www.stata.com/copyright/" class="bodylink">Copyright</a> 1996–2019 StataCorp LLC
+&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href="https://www.stata.com/terms-of-use/" class="bodylink">Terms of use</a>
+&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href="https://www.stata.com/privacy-policy/" class="bodylink">Privacy</a>
+&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href="https://www.stata.com/company/contact/" class="bodylink">Contact us</a>
+&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href="https://www.stata.com/news/whats-new/" class="bodylink">What's new</a>
+&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href="https://www.stata.com/site-index/" class="bodylink">Site index</a>
+</font>
+</td>
+</tr>
+</tbody></table>
+<br>
+
+
+</body></html>
