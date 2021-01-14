@@ -1,3 +1,1 @@
-Can I see this in the terminal?
-
-This is a test using http://swcarpentry.github.io/git-novice/04-changes/index.html. 
+Tutorial on how to use the git found here: http://swcarpentry.github.io/git-novice/04-changes/index.html. 
