@@ -2,4 +2,5 @@ Tutorial on how to use the git found here: http://swcarpentry.github.io/git-novi
 
 vim can be used to open text files
 steps: i, escape, :, w, q
+Ismini testing adding text!!! 
 
