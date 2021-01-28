@@ -7,7 +7,7 @@ save "/Users/isminiethridge/Dropbox/JDS_Data/Global Daily COVID-19 Data/Masterfi
 use "/Users/isminiethridge/Dropbox/JDS_Data/Global Daily COVID-19 Data/Build/Inputs/Processed Data/New_COVID_Data.dta"
 save "/Users/isminiethridge/Dropbox/JDS_Data/Global Daily COVID-19 Data/Build/Inputs/Processed Data/Backup_New_COVID_Data/New_COVID_Data_$S_DATE.dta"
 
-*download updated data
+*import updated data from GitHub
 
 import delimited https://raw.githubusercontent.com/sdsna/lancet-covid-19-database/master/data/database.csv, clear
 gen day=date(date, "YMD")-date("12/31/2019", "MDY")
