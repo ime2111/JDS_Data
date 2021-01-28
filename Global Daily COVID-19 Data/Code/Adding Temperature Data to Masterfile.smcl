@@ -1,0 +1,65 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/isminiethridge/Dropbox/JDS_Data/Global Daily COVID-19 Data/Code/Adding Temperature Data to Masterfile.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}28 Jan 2021, 16:56:54
+
+{com}. gen month=month(date)
+{err}variable {bf}month{sf} already defined
+{txt}{search r(110), local:r(110);}
+
+{com}. use "/Users/isminiethridge/Dropbox/JDS_Data/Global Daily COVID-19 Data/Masterfiles/Global COVID-19 Data.dta"
+
+. merge 1:1 iso3 month using "/Users/isminiethridge/Dropbox/JDS_Data/Global Monthly Avg COVID-19/Input Data/Avg Monthly Temp by Country 2012 clean.dta", generate(_merge_temp)
+{res}{err}{p 0 4 2}
+file /Users/isminiethridge/Dropbox/JDS_Data/Global Monthly Avg COVID-19/Input Data/Avg Monthly Temp by Country 2012 clean.dta
+not found
+{p_end}
+{txt}{search r(601), local:r(601);}
+
+{com}. 
+. merge m:m iso3 month using "/Users/isminiethridge/Dropbox/JDS_Data/Global Monthly Avg COVID-19/Inputs/Processed Data/Average Monthly Temperature/Avg Monthly Temp by Country 2012 clean.dta", generate(_merge_temperature)
+{res}
+{txt}{col 5}Result{col 38}# of obs.
+{col 5}{hline 41}
+{col 5}not matched{col 30}{res}           4,686
+{txt}{col 9}from master{col 30}{res}           4,436{txt}  (_merge_temperature==1)
+{col 9}from using{col 30}{res}             250{txt}  (_merge_temperature==2)
+
+{col 5}matched{col 30}{res}          79,920{txt}  (_merge_temperature==3)
+{col 5}{hline 41}
+
+{com}. drop dt
+
+. rename AverageTemperature Avg_Temp_2012
+{res}
+{com}. renmae AverageTemperatureUncertainty Avg_Temp_Uncertainty_2012
+{err}command {bf}renmae{sf} is unrecognized
+{txt}{search r(199), local:r(199);}
+
+{com}. rename AverageTemperatureUncertainty Avg_Temp_Uncertainty_2012
+{res}
+{com}. sort _merge_temperature
+
+. drop if _merge_temperature == 2
+{txt}(250 observations deleted)
+
+{com}. save "/Users/isminiethridge/Dropbox/JDS_Data/Global Daily COVID-19 Data/Masterfiles/Global COVID-19 Data.dta", replace
+{txt}file /Users/isminiethridge/Dropbox/JDS_Data/Global Daily COVID-19 Data/Masterfiles/Global COVID-19 Data.dta saved
+
+{com}. drop _merge_temperature
+
+. order Avg_Temp_2012 Avg_Temp_Uncertainty_2012, after(ag2019)
+
+. save "/Users/isminiethridge/Dropbox/JDS_Data/Global Daily COVID-19 Data/Masterfiles/Global COVID-19 Data.dta", replace
+{txt}file /Users/isminiethridge/Dropbox/JDS_Data/Global Daily COVID-19 Data/Masterfiles/Global COVID-19 Data.dta saved
+
+{com}. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}/Users/isminiethridge/Dropbox/JDS_Data/Global Daily COVID-19 Data/Code/Adding Temperature Data to Masterfile.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}28 Jan 2021, 17:03:51
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}
