@@ -1,0 +1,101 @@
+<Layout units="mm" name="Lancet Regions Dec 2020" printResolution="300" worldFileMap="{3039cdb9-0327-4185-a2f8-c445fd46810f}">
+ <Snapper snapToGrid="0" snapToItems="1" tolerance="5" snapToGuides="1"/>
+ <Grid offsetUnits="mm" resolution="10" offsetX="0" offsetY="0" resUnits="mm"/>
+ <PageCollection>
+  <symbol type="fill" name="" force_rhr="0" alpha="1" clip_to_extent="1">
+   <layer enabled="1" pass="0" class="SimpleFill" locked="0">
+    <prop k="border_width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+    <prop k="color" v="255,255,255,255"/>
+    <prop k="joinstyle" v="miter"/>
+    <prop k="offset" v="0,0"/>
+    <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+    <prop k="offset_unit" v="MM"/>
+    <prop k="outline_color" v="35,35,35,255"/>
+    <prop k="outline_style" v="no"/>
+    <prop k="outline_width" v="0.26"/>
+    <prop k="outline_width_unit" v="MM"/>
+    <prop k="style" v="solid"/>
+    <data_defined_properties>
+     <Option type="Map">
+      <Option type="QString" name="name" value=""/>
+      <Option name="properties"/>
+      <Option type="QString" name="type" value="collection"/>
+     </Option>
+    </data_defined_properties>
+   </layer>
+  </symbol>
+  <LayoutItem blendMode="0" templateUuid="{7c6da834-57df-4c78-bf27-a21b49218fb3}" uuid="{7c6da834-57df-4c78-bf27-a21b49218fb3}" zValue="0" id="" groupUuid="" excludeFromExports="0" positionLock="false" itemRotation="0" outlineWidthM="0.3,mm" visibility="1" position="0,0,mm" opacity="1" frame="false" positionOnPage="0,0,mm" frameJoinStyle="miter" referencePoint="0" type="65638" background="true" size="297,210,mm">
+   <FrameColor blue="0" red="0" green="0" alpha="255"/>
+   <BackgroundColor blue="255" red="255" green="255" alpha="255"/>
+   <LayoutObject>
+    <dataDefinedProperties>
+     <Option type="Map">
+      <Option type="QString" name="name" value=""/>
+      <Option name="properties"/>
+      <Option type="QString" name="type" value="collection"/>
+     </Option>
+    </dataDefinedProperties>
+    <customproperties/>
+   </LayoutObject>
+  </LayoutItem>
+  <GuideCollection visible="1"/>
+ </PageCollection>
+ <LayoutItem type="65642" wrapChar="" itemRotation="0" titleAlignment="1" rasterBorder="1" symbolWidth="7" background="true" fontColor="#000000" lineSpacing="1" columnSpace="2" map_uuid="{3039cdb9-0327-4185-a2f8-c445fd46810f}" outlineWidthM="0.18,mm" boxSpace="2" equalColumnWidth="0" zValue="2" id="" symbolHeight="4" frame="true" title="" templateUuid="{9bf10709-b9ac-47ff-9957-718e72f767df}" position="8.92639,115.855,mm" opacity="1" positionLock="false" referencePoint="0" uuid="{9bf10709-b9ac-47ff-9957-718e72f767df}" splitLayer="0" rasterBorderColor="0,0,0,255" wmsLegendHeight="25" excludeFromExports="0" wmsLegendWidth="50" positionOnPage="8.92639,115.855,mm" frameJoinStyle="miter" legendFilterByAtlas="1" rasterBorderWidth="0" size="63.5719,63.5594,mm" legendFilterByMap="1" groupUuid="" visibility="1" blendMode="0" columnCount="1" resizeToContents="1">
+  <FrameColor blue="0" red="0" green="0" alpha="255"/>
+  <BackgroundColor blue="255" red="255" green="255" alpha="255"/>
+  <LayoutObject>
+   <dataDefinedProperties>
+    <Option type="Map">
+     <Option type="QString" name="name" value=""/>
+     <Option name="properties"/>
+     <Option type="QString" name="type" value="collection"/>
+    </Option>
+   </dataDefinedProperties>
+   <customproperties/>
+  </LayoutObject>
+  <styles>
+   <style name="title" marginBottom="3.5">
+    <styleFont description=".AppleSystemUIFont,16,-1,5,50,0,0,0,0,0" style=""/>
+   </style>
+   <style name="group" marginTop="3">
+    <styleFont description=".AppleSystemUIFont,14,-1,5,50,0,0,0,0,0" style=""/>
+   </style>
+   <style name="subgroup" marginTop="3">
+    <styleFont description=".AppleSystemUIFont,12,-1,5,50,0,0,0,0,0" style=""/>
+   </style>
+   <style name="symbol" marginTop="2.5">
+    <styleFont description=".AppleSystemUIFont,13,-1,5,50,0,0,0,0,0" style=""/>
+   </style>
+   <style name="symbolLabel" marginLeft="2" marginTop="2">
+    <styleFont description=".AppleSystemUIFont,12,-1,5,50,0,0,0,0,0" style=""/>
+   </style>
+  </styles>
+ </LayoutItem>
+ <LayoutItem blendMode="0" followPresetName="" templateUuid="{3039cdb9-0327-4185-a2f8-c445fd46810f}" drawCanvasItems="true" uuid="{3039cdb9-0327-4185-a2f8-c445fd46810f}" zValue="1" id="" groupUuid="" excludeFromExports="0" positionLock="false" keepLayerSet="false" itemRotation="0" outlineWidthM="0.3,mm" visibility="1" position="8.77639,2.5625,mm" opacity="1" frame="false" mapRotation="0" positionOnPage="8.77639,2.5625,mm" frameJoinStyle="miter" referencePoint="0" followPreset="false" type="65639" background="true" size="279.447,182.681,mm">
+  <FrameColor blue="0" red="0" green="0" alpha="255"/>
+  <BackgroundColor blue="255" red="255" green="255" alpha="255"/>
+  <LayoutObject>
+   <dataDefinedProperties>
+    <Option type="Map">
+     <Option type="QString" name="name" value=""/>
+     <Option name="properties"/>
+     <Option type="QString" name="type" value="collection"/>
+    </Option>
+   </dataDefinedProperties>
+   <customproperties/>
+  </LayoutObject>
+  <Extent xmin="-169.92375215080986095" ymin="-97.19288810759621811" ymax="133.48650906727485221" xmax="182.94750209064383739"/>
+  <LayerSet/>
+  <AtlasMap atlasDriven="0" scalingMode="2" margin="0.10000000000000001"/>
+ </LayoutItem>
+ <customproperties>
+  <property key="atlasRasterFormat" value="png"/>
+  <property key="imageAntialias" value="true"/>
+  <property key="imageCropMarginBottom" value="0"/>
+  <property key="imageCropMarginLeft" value="0"/>
+  <property key="imageCropMarginRight" value="0"/>
+  <property key="imageCropMarginTop" value="0"/>
+  <property key="imageCropToContents" value="false"/>
+ </customproperties>
+ <Atlas filterFeatures="0" enabled="0" sortFeatures="0" pageNameExpression="" hideCoverage="0" filenamePattern="'output_'||@atlas_featurenumber" coverageLayer=""/>
+</Layout>
