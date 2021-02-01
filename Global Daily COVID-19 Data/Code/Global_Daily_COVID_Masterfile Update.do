@@ -1,11 +1,11 @@
 
 
 *save backup copy of masterfile and inputs
-use "/Users/isminiethridge/Dropbox/JDS_Data/Global Daily COVID-19 Data/Masterfiles/Global COVID-19 Data.dta"
-save "/Users/isminiethridge/Dropbox/JDS_Data/Global Daily COVID-19 Data/Masterfiles/Backup Masterfiles/Global COVID-19_Data_$S_DATE.dta"
+use "~/Dropbox/JDS_Data/Global Daily COVID-19 Data/Masterfiles/Global COVID-19 Data.dta"
+save "~/Dropbox/JDS_Data/Global Daily COVID-19 Data/Masterfiles/Backup Masterfiles/Global COVID-19_Data_$S_DATE.dta"
 
-use "/Users/isminiethridge/Dropbox/JDS_Data/Global Daily COVID-19 Data/Build/Inputs/Processed Data/New_COVID_Data.dta"
-save "/Users/isminiethridge/Dropbox/JDS_Data/Global Daily COVID-19 Data/Build/Inputs/Processed Data/Backup_New_COVID_Data/New_COVID_Data_$S_DATE.dta"
+use "~/Dropbox/JDS_Data/Global Daily COVID-19 Data/Build/Inputs/Processed Data/New_COVID_Data.dta"
+save "~/Dropbox/JDS_Data/Global Daily COVID-19 Data/Build/Inputs/Processed Data/Backup_New_COVID_Data/New_COVID_Data_$S_DATE.dta"
 
 *import updated data from GitHub
 
@@ -158,9 +158,9 @@ drop if iso3 == ""
 sort iso3 day
 
 *merge to masterfile
-save "/Users/isminiethridge/Dropbox/JDS_Data/Global Daily COVID-19 Data/Build/Inputs/Processed Data/New_COVID_Data.dta"
-use "/Users/isminiethridge/Dropbox/JDS_Data/Global Daily COVID-19 Data/Masterfiles/Global COVID-19 Data.dta"
-merge m:m iso3 using "/Users/isminiethridge/Dropbox/IE_COVID-19/1. Global Data/Global Masterfiles/git download.dta", nogenerate update replace
+save "~/Dropbox/JDS_Data/Global Daily COVID-19 Data/Build/Inputs/Processed Data/New_COVID_Data.dta"
+use "~/Dropbox/JDS_Data/Global Daily COVID-19 Data/Masterfiles/Global COVID-19 Data.dta"
+merge m:m iso3 using "~/Dropbox/IE_COVID-19/1. Global Data/Global Masterfiles/git download.dta", nogenerate update replace
 sort iso3 day
 drop if iso3 == "-"
-save "/Users/isminiethridge/Dropbox/JDS_Data/Global Daily COVID-19 Data/Masterfiles/Global COVID-19 Data.dta", replace
+save "~/Dropbox/JDS_Data/Global Daily COVID-19 Data/Masterfiles/Global COVID-19 Data.dta", replace
