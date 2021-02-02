@@ -28,10 +28,10 @@ gen Q_days = 0
 replace Q_days = 91 if Q == 1
 replace Q_days = 91 if Q == 2
 replace Q_days = 92 if Q == 3
-drop if day > 341
 replace Q_days = 67 if Q == 4
+drop if day > 341
 sort Q lancetregion
-by Q lancetregion: gen avg_nc_lancetregion = (nc_lancetregion/pop_lancetregion)/Q_days
+by Q lancetregion: gen avg_nc_lancetregion = ((nc_lancetregion/pop_lancetregion)/Q_days)*1000000
 
 *East Asia sub group calculations
 use "/Users/isminiethridge/Dropbox/IE_COVID-19/1. Global Data/Global Masterfiles/Lancet December 2020.dta"

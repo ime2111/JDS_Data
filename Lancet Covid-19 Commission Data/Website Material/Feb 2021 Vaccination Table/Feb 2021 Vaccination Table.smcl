@@ -1,0 +1,123 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/isminiethridge/Dropbox/JDS_Data/Lancet Covid-19 Commission Data/Website Material/Feb 2021 Vaccination Table/Feb 2021 Vaccination Table.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res} 2 Feb 2021, 11:33:46
+
+{com}. import delimited "/Users/isminiethridge/Downloads/owid-covid-data (6).csv"
+{res}{text}(59 vars, 63,572 obs)
+
+{com}. keep iso_code location date population total_vaccinations people_vaccinated people_fully_vaccinated total_vaccinations_per_hundred people_vaccinated_per_hundred people_fully_vaccinated_per_hund
+
+. bysort iso_code: replace total_vaccinations = total_vaccinations[_n-1] if total_vaccinations == .
+{txt}(17,885 real changes made)
+
+{com}. bysort iso_code: replace people_vaccinated = people_vaccinated[_n-1] if people_vaccinated == .
+{txt}(12,949 real changes made)
+
+{com}. bysort iso_code: replace people_fully_vaccinated = people_fully_vaccinated[_n-1] if people_fully_vaccinated == .
+{txt}(12,079 real changes made)
+
+{com}. bysort iso_code: replace total_vaccinations_per_hundred = total_vaccinations_per_hundred[_n-1] if total_vaccinations_per_hundred == .
+{txt}(17,885 real changes made)
+
+{com}. bysort iso_code: replace people_vaccinated_per_hundred = people_vaccinated_per_hundred[_n-1] if people_vaccinated_per_hundred == .
+{txt}(12,949 real changes made)
+
+{com}. bysort iso_code: replace people_fully_vaccinated_per_hund = people_fully_vaccinated_per_hund[_n-1] if people_fully_vaccinated_per_hund == .
+{txt}(12,079 real changes made)
+
+{com}. drop if total_vaccinations == ""
+{err}type mismatch
+{txt}{search r(109), local:r(109);}
+
+{com}. drop if total_vaccinations == .
+{txt}(44,482 observations deleted)
+
+{com}. sort iso_code date
+
+. clear
+
+. import delimited "/Users/isminiethridge/Downloads/owid-covid-data (6).csv"
+{res}{text}(59 vars, 63,572 obs)
+
+{com}. bysort iso_code date: replace total_vaccinations = total_vaccinations[_n-1] if total_vaccinations == .
+{txt}(0 real changes made)
+
+{com}. keep iso_code location date population total_vaccinations people_vaccinated people_fully_vaccinated total_vaccinations_per_hundred people_vaccinated_per_hundred people_fully_vaccinated_per_hund
+
+. sort iso_code date
+
+. bysort iso_code date: replace total_vaccinations = total_vaccinations[_n-1] if total_vaccinations == .
+{txt}(0 real changes made)
+
+{com}. bysort iso_code: replace total_vaccinations = total_vaccinations[_n-1] if total_vaccinations == .
+{txt}(639 real changes made)
+
+{com}. bysort iso_code: replace people_vaccinated = people_vaccinated[_n-1] if people_vaccinated == .
+{txt}(320 real changes made)
+
+{com}. bysort iso_code: replace people_fully_vaccinated = people_fully_vaccinated[_n-1] if people_fully_vaccinated == .
+{txt}(132 real changes made)
+
+{com}. bysort iso_code: replace total_vaccinations_per_hundred = total_vaccinations_per_hundred[_n-1] if total_vaccinations_per_hundred == .
+{txt}(639 real changes made)
+
+{com}. bysort iso_code: replace people_vaccinated_per_hundred = people_vaccinated_per_hundred[_n-1] if people_vaccinated_per_hundred == .
+{txt}(320 real changes made)
+
+{com}. bysort iso_code: replace people_fully_vaccinated_per_hund = people_fully_vaccinated_per_hund[_n-1] if people_fully_vaccinated_per_hund == .
+{txt}(132 real changes made)
+
+{com}. clear
+
+. import delimited "/Users/isminiethridge/Downloads/owid-covid-data (6).csv"
+{res}{text}(59 vars, 63,572 obs)
+
+{com}. keep iso_code location date population total_vaccinations people_vaccinated people_fully_vaccinated total_vaccinations_per_hundred people_vaccinated_per_hundred people_fully_vaccinated_per_hund
+
+. bysort iso_code date: replace total_vaccinations = total_vaccinations[_n-1] if total_vaccinations == .
+{txt}(0 real changes made)
+
+{com}. bysort iso_code: replace total_vaccinations = total_vaccinations[_n-1] if total_vaccinations == .
+{txt}(639 real changes made)
+
+{com}. bysort iso_code: replace people_vaccinated = people_vaccinated[_n-1] if people_vaccinated == .
+{txt}(320 real changes made)
+
+{com}. bysort iso_code: replace people_fully_vaccinated = people_fully_vaccinated[_n-1] if people_fully_vaccinated == .
+{txt}(132 real changes made)
+
+{com}. bysort iso_code: replace total_vaccinations_per_hundred = total_vaccinations_per_hundred[_n-1] if total_vaccinations_per_hundred == .
+{txt}(639 real changes made)
+
+{com}. bysort iso_code: replace people_vaccinated_per_hundred = people_vaccinated_per_hundred[_n-1] if people_vaccinated_per_hundred == .
+{txt}(320 real changes made)
+
+{com}. bysort iso_code: replace people_fully_vaccinated_per_hund = people_fully_vaccinated_per_hund[_n-1] if people_fully_vaccinated_per_hund == .
+{txt}(132 real changes made)
+
+{com}. drop if total_vaccinations == .
+{txt}(61,728 observations deleted)
+
+{com}. keep if date == "2021-02-01"
+{txt}(1,786 observations deleted)
+
+{com}. sort total_vaccinations
+
+. drop date
+
+. order population, after(location)
+
+. save "/Users/isminiethridge/Dropbox/JDS_Data/Lancet Covid-19 Commission Data/Website Material/Feb 2021 Vaccination Table/Feb 2021 Vaccination Data.dta"
+{txt}file /Users/isminiethridge/Dropbox/JDS_Data/Lancet Covid-19 Commission Data/Website Material/Feb 2021 Vaccination Table/Feb 2021 Vaccination Data.dta saved
+
+{com}. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}/Users/isminiethridge/Dropbox/JDS_Data/Lancet Covid-19 Commission Data/Website Material/Feb 2021 Vaccination Table/Feb 2021 Vaccination Table.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res} 2 Feb 2021, 14:29:14
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}
