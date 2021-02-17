@@ -1,0 +1,203 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/isminiethridge/Dropbox/JDS_Data/Lancet Covid-19 Commission Data/December 2020 Statement/Lancet Tables Dec 2020/Code/February updates to lancet table.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res} 3 Feb 2021, 12:26:44
+
+{com}. by Q lancetregion: gen avg_nc_lancetregion = ((nc_lancetregion/pop_lancetregion)/Q_days)*1000000
+
+. 
+. by Q lancetregion: egen ncpm_lancetregion = sum(ncpm)
+
+. by Q lancetregion: gen avg_ncpm_lancetregion = (ncpm_lancetregion/Q_days)
+
+. save "/Users/isminiethridge/Dropbox/JDS_Data/Lancet Covid-19 Commission Data/December 2020 Statement/Lancet Tables Dec 2020/Outputs/new Lancet Tables update February 2021 (all countries).dta"
+{txt}file /Users/isminiethridge/Dropbox/JDS_Data/Lancet Covid-19 Commission Data/December 2020 Statement/Lancet Tables Dec 2020/Outputs/new Lancet Tables update February 2021 (all countries).dta saved
+
+{com}. 
+. drop iso3-population
+{err}variable {bf}population{sf} not found
+{txt}{search r(111), local:r(111);}
+
+{com}. order Q, first
+
+. order Q_days, after(Q)
+
+. duplicates drop
+
+{p 0 4}{txt}Duplicates in terms of {txt} all variables{p_end}
+
+(0 observations are duplicates)
+
+{com}. 
+. drop iso3-ncpm
+
+. duplicates drop
+
+{p 0 4}{txt}Duplicates in terms of {txt} all variables{p_end}
+
+(83,569 observations deleted)
+
+{com}. clear
+
+. use "/Users/isminiethridge/Dropbox/JDS_Data/Lancet Covid-19 Commission Data/December 2020 Statement/Lancet Tables Dec 2020/Outputs/Lancet Tables update February 2021 (all countries).dta"
+
+. drop iso3-population
+
+. order Q, first
+
+. order Q_days, after(Q)
+
+. duplicates drop
+
+{p 0 4}{txt}Duplicates in terms of {txt} all variables{p_end}
+
+(83,569 observations deleted)
+
+{com}. 
+. clear
+
+. use "/Users/isminiethridge/Dropbox/JDS_Data/Lancet Covid-19 Commission Data/December 2020 Statement/Lancet Tables Dec 2020/Outputs/Lancet Tables update February 2021 (all countries).dta"
+
+. 
+. drop nc_lancetregion nc_pmpd_lancetregion
+
+. 
+. keep if lancetregion == "East Asia Pacific"
+{txt}(72,841 observations deleted)
+
+{com}. 
+. replace pop_lancetregion =  920676226 
+{txt}(10,763 real changes made)
+
+{com}. replace pop_lancetregion =   1439323774 if iso3 == "CHN"
+{txt}(398 real changes made)
+
+{com}. replace lancetregion = "China" if iso3 == "CHN"
+{txt}(398 real changes made)
+
+{com}. sort Q lancetregion
+
+. by Q lancetregion: egen nc_lancetregion = sum(nc)
+
+. keep lancetregion pop_lancetregion worldpop Q Q_days nc_lancetregion
+
+. duplicates drop
+
+{p 0 4}{txt}Duplicates in terms of {txt} all variables{p_end}
+
+(10,753 observations deleted)
+
+{com}. bysort Q lancetregion: gen nc_pmpd_lancetregion = ((nc_lancetregion/pop_lancetregion)/Q_days)*1000000
+
+. 
+. clear
+
+. use "~/Dropbox/JDS_Data/Global Daily COVID-19 Data/Masterfiles/Global COVID-19 Data.dta"
+
+. 
+. merge m:m iso3 using "~/Dropbox/JDS_Data/Lancet Covid-19 Commission Data/December 2020 Statement/Lancet Tables Dec 2020/Inputs/Lancet Region Pop.dta", generate(_merge_pop)
+{res}
+{txt}{col 5}Result{col 38}# of obs.
+{col 5}{hline 41}
+{col 5}not matched{col 30}{res}           1,783
+{txt}{col 9}from master{col 30}{res}           1,783{txt}  (_merge_pop==1)
+{col 9}from using{col 30}{res}               0{txt}  (_merge_pop==2)
+
+{col 5}matched{col 30}{res}          83,604{txt}  (_merge_pop==3)
+{col 5}{hline 41}
+
+{com}. keep iso3 country_un date day ncpm nc lancetregion pop_lancetregion worldpop 
+
+. drop if lancetregion == ""
+{txt}(1,783 observations deleted)
+
+{com}. 
+. gen Q = 0
+
+. replace Q = 1 if day <= 91
+{txt}(18,533 real changes made)
+
+{com}. replace Q = 2 if day >= 92 & day <= 182
+{txt}(19,655 real changes made)
+
+{com}. replace Q = 3 if day >= 183 & day <= 274
+{txt}(19,847 real changes made)
+
+{com}. replace Q = 4 if day >= 275 & day <= 366
+{txt}(19,207 real changes made)
+
+{com}. replace Q = 5 if day >= 367
+{txt}(6,362 real changes made)
+
+{com}. 
+. sort Q lancetregion
+
+. by Q lancetregion: egen nc_lancetregion = sum(nc)
+
+. 
+. gen Q_days = 0
+
+. replace Q_days = 91 if Q == 1
+{txt}(18,533 real changes made)
+
+{com}. replace Q_days = 91 if Q == 2
+{txt}(19,655 real changes made)
+
+{com}. replace Q_days = 92 if Q == 3
+{txt}(19,847 real changes made)
+
+{com}. replace Q_days = 92 if Q == 4
+{txt}(19,207 real changes made)
+
+{com}. replace Q_days = 32 if Q == 5
+{txt}(6,362 real changes made)
+
+{com}. 
+. by Q lancetregion: gen avg_nc_lancetregion = ((nc_lancetregion/pop_lancetregion)/Q_days)*1000000
+
+. 
+. save "/Users/isminiethridge/Dropbox/JDS_Data/Lancet Covid-19 Commission Data/December 2020 Statement/Lancet Tables Dec 2020/Outputs/TEMP Lancet Tables update February 2021 (all countries).dta
+{txt}file /Users/isminiethridge/Dropbox/JDS_Data/Lancet Covid-19 Commission Data/December 2020 Statement/Lancet Tables Dec 2020/Outputs/TEMP Lancet Tables update February 2021 (all countries).dta saved
+
+{com}. 
+. drop iso3-population
+{err}variable {bf}population{sf} not found
+{txt}{search r(111), local:r(111);}
+
+{com}. order Q, first
+
+. order Q_days, after(Q)
+
+. duplicates drop
+
+{p 0 4}{txt}Duplicates in terms of {txt} all variables{p_end}
+
+(0 observations are duplicates)
+
+{com}. 
+. clear
+
+. use "/Users/isminiethridge/Dropbox/JDS_Data/Lancet Covid-19 Commission Data/December 2020 Statement/Lancet Tables Dec 2020/Outputs/TEMP Lancet Tables update February 2021 (all countries).dta"
+
+. drop iso3-ncpm 
+
+. 
+. order Q, first
+
+. order Q_days, after(Q)
+
+. duplicates drop
+
+{p 0 4}{txt}Duplicates in terms of {txt} all variables{p_end}
+
+(83,569 observations deleted)
+
+{com}. 
+. clear
+
+. use "/Users/isminiethridge/Dropbox/IE_COVID-19/1. Global Data/Global Masterfiles/Lancet December 2020.dta"
+
+. 
+. 

@@ -1,0 +1,27 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/juliebartels/Dropbox/JDS_Data/Lancet Covid-19 Commission Data/December 2020 Statement/Lancet Tables Dec 2020/Code/Dec Statement table update (Feb 1).smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res} 1 Feb 2021, 13:36:30
+
+{com}. use "/Users/juliebartels/Dropbox/JDS_Data/Global Daily COVID-19 Data/Masterfiles/Global COVID-19 Data.dta"
+
+. use "~/Dropbox/JDS_Data/Global Daily COVID-19 Data/Masterfiles/Global COVID-19 Data.dta"
+
+. import delimited https://raw.githubusercontent.com/sdsna/lancet-covid-19-database/master/data/database.csv, clear
+{res}{text}(157 vars, 80,340 obs)
+
+{com}. sort iso3 day
+{err}variable {bf}iso3{sf} not found
+{txt}{search r(111), local:r(111);}
+
+{com}. clear
+
+. use "/Users/juliebartels/Dropbox/JDS_Data/Global Daily COVID-19 Data/Masterfiles/Global COVID-19 Data.dta"
+
+. use "/Users/juliebartels/Dropbox/JDS_Data/Global Daily COVID-19 Data/Masterfiles/Global COVID-19 Data.dta"
+
+. clear
+
+. exit
