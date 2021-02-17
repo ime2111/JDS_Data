@@ -158,9 +158,15 @@ drop if iso3 == ""
 sort iso3 day
 
 *merge to masterfile
+<<<<<<< HEAD
 save "~/Dropbox/JDS_Data/Global Daily COVID-19 Data/Build/Inputs/Processed Data/New_COVID_Data.dta", replace
 use "~/Dropbox/JDS_Data/Global Daily COVID-19 Data/Masterfiles/Global COVID-19 Data.dta"
 merge m:m iso3 using "~/Dropbox/JDS_Data/Global Daily COVID-19 Data/Build/Inputs/Processed Data/New_COVID_Data.dta", nogenerate update replace
+=======
+save "~/Dropbox/JDS_Data/Global Daily COVID-19 Data/Build/Inputs/Processed Data/New_COVID_Data.dta"
+use "~/Dropbox/JDS_Data/Global Daily COVID-19 Data/Masterfiles/Global COVID-19 Data.dta"
+merge m:m iso3 using "~/Dropbox/IE_COVID-19/1. Global Data/Global Masterfiles/git download.dta", nogenerate update replace
+>>>>>>> 96fd2ac8db7db35b6e5b6f152ee0f3f6900acc0c
 sort iso3 day
 drop if iso3 == "-"
 save "~/Dropbox/JDS_Data/Global Daily COVID-19 Data/Masterfiles/Global COVID-19 Data.dta", replace
