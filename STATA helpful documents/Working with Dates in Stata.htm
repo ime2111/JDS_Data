@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0050)https://www.ssc.wisc.edu/sscc/pubs/stata_dates.htm -->
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/DocTemplate.dwt" codeOutsideHTMLIsLocked="false" --><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Working with Dates in Stata</title>
+<!-- InstanceEndEditable -->
+ <link rel="shortcut icon" href="https://www.ssc.wisc.edu/sscc/assets/FavIcon/favicon.ico">
+<link href="./Working with Dates in Stata_files/Publication.css" rel="stylesheet" media="screen" type="text/css">
+<link href="./Working with Dates in Stata_files/Print.css" rel="stylesheet" type="text/css" media="print">
+<link rel="alternate" type="application/rss+xml" title="SSCC Info" href="https://www.ssc.wisc.edu/sscc/wp/?feed=rss2&amp;cat=-12">
+    <!-- InstanceBeginEditable name="head" -->
+    <!-- InstanceEndEditable -->
+    <script type="text/javascript" async="" src="./Working with Dates in Stata_files/ga.js"></script><script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-26623692-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body>
+<div id="OuterWrapper"><!-- #BeginLibraryItem "/Library/Header.lbi" --><meta http-equiv="Content-Type" table="text/html; charset=utf-8"><div id="Header">
+        <div id="HeaderImage"> <a href="https://www.ssc.wisc.edu/sscc/pubs/stata_dates.htm#table"><img src="./Working with Dates in Stata_files/main_header.jpg" width="800" height="130" alt="SSCC - Social Science Computing Cooperative" border="0" usemap="#Map" title="SSCC - Social Science Computing Cooperative"></a>
+          <map name="Map">
+            <area shape="rect" coords="5,24,298,120" href="https://www.ssc.wisc.edu/sscc/" alt="SSCC Home Page">
+          </map>
+          
+</div>
+        <div id="HeaderNav">
+ • <a id="lnkHome" href="https://www.ssc.wisc.edu/sscc/" title="HOME">HOME</a> • <a href="https://www.ssc.wisc.edu/sscc/pubs/winstat.htm" title="Learn How to Log In to Winstat">WINSTAT</a> •  <a href="https://www.ssc.wisc.edu/sscc/helpdesk.htm" title="Contact the SSCC Help Desk">HELP DESK</a> • <a href="https://www.ssc.wisc.edu/sscc/statconsult.htm" title="SSCC Statistical Consulting">STAT CONSULTING</a> • <a href="https://www.ssc.wisc.edu/sscc/pubs" title="Articles on statistical computing and using SSCC resources">KNOWLEDGE BASE</a> •
+<span style="visibility:hidden">&lt;%@ include file="/authenticate/logoutlink.jsp" %&gt;</span></div>
+        <div id="HeaderSearch"><form action="https://www.ssc.wisc.edu/sscc/results.html" id="cse-search-box">
+  <div>
+    <input type="hidden" name="cx" value="009976823638626595604:fyieafx208s">
+    <input type="hidden" name="cof" value="FORID:11">
+    <input type="hidden" name="ie" value="UTF-8">
+    <input type="text" id="SearchInput" class="SearchBox" title="Search" name="q" value="Search" onblur="if (this.value == &#39;&#39;) {this.value = &#39;Search&#39;;}" onfocus="if (this.value == &#39;Search&#39;) {this.value = &#39;&#39;;}" size="31">
+ 
+  </div>
+</form></div>
+
+    </div><!-- #EndLibraryItem --><div id="MainWrapper">
+<div id="RightWrapper">
+            <div id="RightInnerWrapper">
+                <div id="RightHeader">
+                  <div id="RightHeaderContent"><a href="https://www.ssc.wisc.edu/sscc/pubs/home.htm">SSCC Knowledge Base</a></div>
+                </div>
+                <div class="Clear"></div>
+                <div id="RightContent">
+                <h1><a name="content" id="content"></a><!-- InstanceBeginEditable name="Title" -->Working with Dates in Stata<!-- InstanceEndEditable --></h1>
+                <!-- InstanceBeginEditable name="Text" -->
+                <p>Stata has many tools for working with dates. This article will introduce you to some of the most useful and easy to use features.</p>
+                <p>A Stata date is simply a number, but with the <span class="InputCode">%td</span> format applied Stata will interpret that number as "number of days since January 1, 1960." You can then use that number in a variety of ways. Stata has similar tools that measure time in terms of milliseconds, months, quarters, years and more. This article will focus on days, but if you know how to work with days you can quickly learn the others.</p>
+                <p>Often the first task is  to convert the data you've been given into official Stata dates.	</p>
+                <h2>Converting Strings to Dates</h2>
+                <p>If you've been given a date in string form, such as "November 3, 2010", "11/3/2010" or "2010-11-03 08:35:12" it can be converted using the <span class="InputCode">date</span> function. The date function takes two arguments, the string to be converted, and a series of letters called a "mask" that tells Stata how the string is structured. In a date mask, <span class="InputCode">Y</span> means year, <span class="InputCode">M</span> means month, <span class="InputCode">D</span> means day and <span class="InputCode">#</span> means an element should be skipped.</p>
+                <p> Thus the mask <span class="InputCode">MDY</span> means "month, day, year" and can be used to convert both "November 3, 2010" and "11/3/2010". A date like "2010-11-03 08:35:12" requires the mask <span class="InputCode">YMD###</span> so that the last three numbers are skipped. If you are interested in tracking the time of day you need to switch to the <span class="InputCode">clock</span> function and the <span class="InputCode">%tc</span> format so time is measured in milliseconds rather than days, but they are very similar.</p>
+                <p>To see this in action, type (or copy and paste) the following into Stata:</p>
+                <p class="InputCode">use http://www.ssc.wisc.edu/sscc/pubs/files/dates.dta</p>
+                <p>This is an example data set containing the above dates as <span class="InputCode">dateString1</span>, <span class="InputCode">dateString2</span> and <span class="InputCode">dateString3</span>. To convert them to Stata dates do the following:</p>
+                <p class="InputCode">gen date1=date(dateString1,"MDY")<br>
+                  gen date2=date(dateString2,"MDY")<br>
+                gen date3=date(dateString3,"YMD###")</p>
+                <p>Note that the mask goes in quotes.</p>
+                <h2>Converting Numbers to Dates</h2>
+                <p>Another common  scenario gives you dates as three separate numeric variables, one for the year, one for the month and one for the day. The <span class="InputCode">year</span>, <span class="InputCode">month</span> and <span class="InputCode">day</span> variables in the example data set contain the same date as the others but in this format. To convert such dates to Stata dates, use the <span class="InputCode">mdy</span> function. It takes three numeric arguments: the month, day and year to be converted.</p>
+                <p class="InputCode">gen date4=mdy(month,day,year)</p>
+                <h2>Formatting Date Variables</h2>
+                <p>While the four date variables you've created are perfectly functional dates as far as Stata is concerned, they're difficult for humans to interpret. However, the <span class="InputCode">%td</span> format tells Stata to print them out as human readable dates: </p>
+                <p class="InputCode">format date1 %td<br>
+                format date2 %td<br>
+                format date3 %td<br>
+                format date4 %td</p>
+<p>This turns the <span class="InputCode">18569</span> now stored in all four variables into <span class="InputCode">03nov2010</span> (18,569 days since January 1, 1960) in all output. Try a <span class="InputCode">list</span> to see the result. If you remember your <a href="https://www.ssc.wisc.edu/sscc/pubs/sfr-syntax.htm#Varlists">varlist syntax</a>, you can do them all at once with:</p>
+<p class="InputCode">format date? %td</p>
+<p>You can have Stata output dates in different formats as well. For instructions type <span class="InputCode">help dates</span> and then click on the link <span class="MenuOutput">Formatting date and time values</span>.</p>
+<h2>Using Dates</h2>
+<p>Often your goal in creating a Stata date will be to create a time variable that can be included in a statistical command. If so, you can probably use it with no further modification. However, there are some common data preparation tasks involving dates.</p>
+<h3>Date Constants</h3>
+<p>If you need to refer to a particular date in your code, then in principle you could refer to it by number. However, it's usually more convenient to use the same functions used to import date variables. For example, the following are all equivalent ways of referring to November 3, 2010:</p>
+<p class="InputCode">18569<br>
+  date("November 3, 2010","MDY")<br>
+  mdy(11,3,2010)</p>
+<p>  The <span class="InputCode">td</span> pseudofunction was designed for tasks like this and is somewhat more convenient to use. It takes a single argument (which cannot be a variable name) and converts it to a date on the assumption that the argument is a string containing a date in the format day, month, year. This matches the output of the <span class="InputCode">%td</span> format, e.g. <span class="InputCode">3nov2010</span>. Thus the following is also equivalent:</p>
+<p class="InputCode">td(3nov2010)</p>
+<p>However, the following is not:</p>
+<p class="InputCode">td(11/3/2010)</p>
+<p>This will be interpreted as March 11, 2010, not November 3, 2010.</p>
+<h3>Extracting Date Components</h3>
+<p>Sometimes you need to pull out the components of a date. You can do so with the <span class="InputCode">year</span>, <span class="InputCode">month</span> and <span class="InputCode">day</span> functions:</p>
+<p class="InputCode">gen year1=year(date1)<br>
+  gen month1=month(date1)<br>
+  gen day1=day(date1)</p>
+<h3></h3>
+<h3>Before and After</h3>
+<p>Since dates are just numbers, before and after are equivalent to less than and greater than. Thus:</p>
+<p class="InputCode">gen before2010=(date1&lt;td(1,1,2010))<br>
+gen after2010=(date1&gt;date("January 1 2010","MDY"))</p>
+<p></p>
+<p></p>
+<p></p>
+<h3>Durations and Intervals</h3>
+<p>Durations in days can be found using simple subtraction. The example data set contains the dates <span class="InputCode">beginning</span> and <span class="InputCode">ending</span>, and you can find out the duration of the interval between them with:</p>
+<p class="InputCode">gen duration=ending-beginning</p>
+<p>Durations in months are more difficult because months vary in length. One common approach is to ignore days entirely and calculate the duration solely from the year and month components of the dates involved:</p>
+<p class="InputCode">gen durationInMonths=(year(ending)-year(beginning))*12+month(ending)-month(beginning)</p>
+<p>Just keep in mind that this approach says January 31 and February 1 are one month apart, while January 1 and January 31 are zero months apart.</p>
+<h3>Date Arithmetic</h3>
+<p>If you need to add (or subtract) a period measured in days to a date, it is straightforward to do so. Just remember to format all new date variables as dates with <span class="InputCode">%td</span>:</p>
+<p class="InputCode">gen tenDaysLater=date1+10<br>
+  gen yesterday=date1-1<br>
+  format %td tenDaysLater  yesterday</p>
+<p>If the period is measured in weeks, just multiply by 7.</p>
+<h3>Months and Years</h3>
+<p>Months and years are problematic because they don't always represent the same amount of time. A month can be anything from 28 to 31 days, and a calendar year is usually 365 days but is 366 days in leap year.</p>
+<p>Suppose today's date were April 20th, 2017. If I asked you what the date will be in one month, you'd probably respond May 20th, 2017. If I asked you what the date will be in one year, you'd probably respond April 20th, 2018.</p>
+<p>Now consider two particularly problematic dates: January 31, 2016 and February 29, 2016. One month after January 31st cannot be February 31st, because no such day exists. Similarly, one year after February 29th, 2016 cannot be February 29, 2017, because <a href="https://en.wikipedia.org/wiki/The_Pirates_of_Penzance">February 29th only exists in leap years</a>. So what should be done?</p>
+<p>If the dates in your data are mostly just months, consider storing them as dates in monthly format, where the underlying number is the number of months since January, 1960 rather than the number of days. Then all these issues go away. You can convert dates to monthly dates with the <span class="InputCode">mofd()</span> function and then give them the <span class="InputCode">%tm</span> format to make them readable:</p>
+<p class="InputCode">clear<br>
+  use http://www.ssc.wisc.edu/sscc/pubs/files/moredates.dta<br>
+  <br>
+  gen monthlyDate=mofd(date)<br>
+  gen oneMonthLater1=monthlyDate+1<br>
+  gen oneYearLater1=monthlyDate+12<br>
+  format monthlyDate oneMonthLater1 oneYearLater1 %tm</p>
+<p>Alternatively, you can define a "standard month" of 30 or 31 days or a "standard year" of 365 days (no, 365.25 days won't work unless you're storing time as well as date). This has the advantage of making all time intervals uniform. It's also easy to program:</p>
+<p class="InputCode">gen oneMonthLater2=date+30<br>
+  gen oneYearLater2=date+365<br>
+  format oneMonthLater2 oneYearLater2 %td</p>
+<p>However, note that 30 days after January 31, 2016 is March 1, 2016, and 365 days after January 31, 2016 is January 30, 2017. That might not be ideal in some contexts.</p>
+<p>Another practical definition of "one month later" would be "the same day in the next month if that exists, otherwise the last day of the next month." Then one month after January 31st would be February 28th or 29th depending on the year. You can implement this, without programming in how many days each month has, using the following algorithm:</p>
+<ol>
+  <li>Convert the date to a monthly date and add one month to it</li>
+  <li>Create a new date based on the month and year from the  date created in step 1, and the day of the month from the original date</li>
+  <li>If the resulting date is invalid (e.g. February 31st) subtract days until you get a valid date</li>
+</ol>
+<p>The following code implements this algorithm:</p>
+<p class="InputCode">gen oneMonthLaterTemp=dofm(mofd(date)+1)<br>
+  gen oneMonthLater3=mdy(month(oneMonthLaterTemp),day(date),year(oneMonthLaterTemp))<br>
+  egen numInvalid=total(oneMonthLater3==.) // calculate number of dates that are invalid<br>
+  local i 1 // number of days to subtract from invalid dates<br>
+  while (numInvalid&gt;0) {<br>
+  <span class="indent3">replace oneMonthLater3=mdy(month(oneMonthLaterTemp),day(date)-`i',year(oneMonthLaterTemp)) if oneMonthLater3==.</span><br>
+  <span class="indent3">local i=`i'+1 // increase number of days to subtract</span><br>
+  <span class="indent3">drop numInvalid</span><br>
+  <span class="indent3">egen numInvalid=total(oneMonthLater3==.) // see if we still have invalid dates</span><br>
+  }<br>
+  drop oneMonthLaterTemp numInvalid<br>
+  format oneMonthLater3 %td</p>
+<p>The<span class="InputCode"> mofd()</span> function converts a regular date to a monthly date, and the <span class="InputCode">dofm()</span> function converts a monthly date to a regular date.</p>
+<p>Very similar code could be used for adding years without needing to program in which years are leap years.</p>
+<h2>Learning More</h2>
+<p>To read the full documentation on Stata dates, type <span class="InputCode">help dates</span> and then click on the <span class="MenuOutput">dates and times</span> link at the top (the PDF documentation is much easier to read in this case). There you'll learn to:</p>
+<ul>
+  <li>Work with times</li>
+  <li>Use intervals other than days, such as months, quarters or years</li>
+  <li>Create your own date format for output (e.g. <span class="InputCode">November 3rd, 2010</span> rather than <span class="InputCode">3nov2010</span>)</li>
+  <li>Track leap seconds, in case you need to be extremely precise--you'll also find an explanation of why such things exist</li>
+  </ul>
+<h2>Complete Do File</h2>
+<p>The following is a do file containing all the code from this article (except for a few code fragments that were discussed but can't be run by themselves):</p>
+<p class="InputCode">clear all<br>
+set more off<br>
+use http://www.ssc.wisc.edu/sscc/pubs/files/dates.dta<br>
+<br>
+gen date1=date(dateString1,"MDY")<br>
+gen date2=date(dateString2,"MDY")<br>
+gen date3=date(dateString3,"YMD###")<br>
+gen date4=mdy(month,day,year)<br>
+ format date? %td<br>
+ <br>
+gen year1=year(date1)<br>
+gen month1=month(date1)<br>
+gen day1=day(date1)<br>
+<br>
+gen before2010=(date1&lt; td(1,1,2010))<br>
+gen after2010=(date1&gt;date("January 1 2010","MDY"))<br>
+<br>
+gen duration=ending-beginning<br>
+gen durationInMonths=(year(ending)-year(beginning))*12+month(ending)-month(beginning)<br>
+<br>
+gen tenDaysLater=date1+10<br>
+gen yesterday=date1-1<br>
+format tenDaysLater yesterday
+
+%td<br>
+<br>
+clear<br>
+use http://www.ssc.wisc.edu/sscc/pubs/files/moredates.dta<br>
+<br>
+gen monthlyDate=mofd(date)<br>
+gen oneMonthLater1=monthlyDate+1<br>
+gen oneYearLater1=monthlyDate+12<br>
+format monthlyDate oneMonthLater1 oneYearLater1 %tm<br>
+<br>
+gen oneMonthLater2=date+30<br>
+gen oneYearLater2=date+365<br>
+format oneMonthLater2 oneYearLater2 %td<br>
+<br>
+gen oneMonthLaterTemp=dofm(mofd(date)+1)<br>
+gen oneMonthLater3=mdy(month(oneMonthLaterTemp),day(date),year(oneMonthLaterTemp))<br>
+egen numInvalid=total(oneMonthLater3==.) // calculate number of dates that are invalid<br>
+local i 1 // number of days to subtract from invalid dates<br>
+while (numInvalid&gt;0) {
+<br>
+<span class="indent3">replace oneMonthLater3=mdy(month(oneMonthLaterTemp),day(date)-`i',year(oneMonthLaterTemp)) if oneMonthLater3==.</span><br>
+<span class="indent3">local i=`i'+1 // increase number of days to subtract</span><br>
+<span class="indent3">drop numInvalid</span><br>
+<span class="indent3">egen numInvalid=total(oneMonthLater3==.) // see if we still have invalid dates</span><br>
+}<br>
+drop oneMonthLaterTemp numInvalid<br>
+format oneMonthLater3 %td </p>
+                <!-- InstanceEndEditable -->
+                <p class="reviseDate">Last Revised: <!-- InstanceBeginEditable name="Date" -->4/20/2017<!-- InstanceEndEditable --></p>
+                </div>
+            </div>
+      </div>
+  </div>
+    <div class="Clear"></div><!-- #BeginLibraryItem "/Library/footer.lbi" --><meta http-equiv="Content-Type" table="text/html; charset=utf-8">
+	<div id="Footer">
+        <div id="UWLogo">
+            <div id="UWPic"><a href="http://www.wisc.edu/" title="University of Wisconsin - Madison"><img src="./Working with Dates in Stata_files/UWLogo.jpg" alt="University of Wisconsin - Madison" title="University of Wisconsin - Madison"></a></div>
+        </div>
+        <div id="BlueCurve">
+            <div id="FooterCopy">©2009-2019 UW Board of Regents, <a href="http://www.wisc.edu/">University of Wisconsin - Madison</a></div>
+            <div id="FooterNav">| <a href="https://www.ssc.wisc.edu/sscc/helpdesk.htm">Contact Us</a> | <a href="https://www.ssc.wisc.edu/sscc/wp/?feed=rss2"><img src="./Working with Dates in Stata_files/feed-icon-14x14.png" width="14" height="14" alt="RSS Feed Icon" class="RSSicon">RSS</a> |</div>
+        </div>
+    </div>
+<!-- #EndLibraryItem --></div>
+<div id="PrintLogo">
+<img src="./Working with Dates in Stata_files/SSCC_logoBW3.gif" width="350" height="85" alt="Social Science Computing Cooperative"></div>
+
+<!-- InstanceEnd -->
+</body></html>
