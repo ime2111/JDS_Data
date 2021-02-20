@@ -157,6 +157,131 @@ rename owid_avg_weekly_deaths_2015_2019 avg_weekly_deaths_2015_2019
 drop if iso3 == ""
 sort iso3 day
 
+*fill in missing data for yougov
+generate yg_fcfill = yg_fc 
+order yg_fcfill, after(yg_fc)
+bysort iso3: replace yg_fcfill = yg_fcfill[_n-1] if yg_fcfill == . & yg_fcfill[_n-1] ~= .
+
+generate yg_cpfill = yg_cp 
+order yg_cpfill, after(yg_cp)
+bysort iso3: replace yg_cpfill = yg_cpfill[_n-1] if yg_cpfill == . & yg_cpfill[_n-1] ~= .
+
+generate yg_ghfill = yg_gh 
+order yg_ghfill, after(yg_gh)
+bysort iso3: replace yg_ghfill = yg_ghfill[_n-1] if yg_ghfill == . & yg_ghfill[_n-1] ~= .
+
+generate yg_mipfill = yg_mip 
+order yg_mipfill, after(yg_mip)
+bysort iso3: replace yg_mipfill = yg_mipfill[_n-1] if yg_mipfill == . & yg_mipfill[_n-1] ~= .
+
+generate yg_awfill = yg_aw 
+order yg_awfill, after(yg_aw)
+bysort iso3: replace yg_awfill = yg_awfill[_n-1] if yg_awfill == . & yg_awfill[_n-1] ~= .
+
+generate yg_armfill = yg_arm 
+order yg_armfill, after(yg_arm)
+bysort iso3: replace yg_armfill = yg_armfill[_n-1] if yg_armfill == . & yg_armfill[_n-1] ~= .
+
+generate yg_scsfill = yg_scs 
+order yg_scsfill, after(yg_scs)
+bysort iso3: replace yg_scsfill = yg_scsfill[_n-1] if yg_scsfill == . & yg_scsfill[_n-1] ~= .
+
+generate yg_phfill = yg_ph
+order yg_phfill, after(yg_ph)
+bysort iso3: replace yg_phfill = yg_phfill[_n-1] if yg_phfill == . & yg_phfill[_n-1] ~= .
+
+generate yg_rtofill = yg_rto
+order yg_rtofill, after(yg_rto)
+bysort iso3: replace yg_rtofill = yg_rtofill[_n-1] if yg_rtofill == . & yg_rtofill[_n-1] ~= .
+
+generate yg_actfill = yg_act
+order yg_actfill, after(yg_act)
+bysort iso3: replace yg_actfill = yg_actfill[_n-1] if yg_actfill == . & yg_actfill[_n-1] ~= .
+
+generate yg_sfcfill = yg_sfc
+order yg_sfcfill, after(yg_sfc)
+bysort iso3: replace yg_sfcfill = yg_sfcfill[_n-1] if yg_sfcfill == . & yg_sfcfill[_n-1] ~= .
+
+generate yg_qfcfill = yg_qfc
+order yg_qfcfill, after(yg_qfc)
+bysort iso3: replace yg_qfcfill = yg_qfcfill[_n-1] if yg_qfcfill == . & yg_qfcfill[_n-1] ~= .
+
+generate yg_ssiffill = yg_ssif
+order yg_ssiffill, after(yg_ssif)
+bysort iso3: replace yg_ssiffill = yg_ssiffill[_n-1] if yg_ssiffill == . & yg_ssiffill[_n-1] ~= .
+
+generate yg_sqiffill = yg_sqif
+order yg_sqiffill, after(yg_sqif)
+bysort iso3: replace yg_sqiffill = yg_sqiffill[_n-1] if yg_sqiffill == . & yg_sqiffill[_n-1] ~= .
+
+generate yg_sqctfill = yg_sqct
+order yg_sqctfill, after(yg_sqct)
+bysort iso3: replace yg_sqctfill = yg_sqctfill[_n-1] if yg_sqctfill == . & yg_sqctfill[_n-1] ~= .
+
+generate yg_sqapfill = yg_sqap
+order yg_sqapfill, after(yg_sqap)
+bysort iso3: replace yg_sqapfill = yg_sqapfill[_n-1] if yg_sqapfill == . & yg_sqapfill[_n-1] ~= .
+
+generate yg_sqalfill = yg_sqal
+order yg_sqalfill, after(yg_sqal)
+bysort iso3: replace yg_sqalfill = yg_sqalfill[_n-1] if yg_sqalfill == . & yg_sqalfill[_n-1] ~= .
+
+generate yg_sfmfill = yg_sfm
+order yg_sfmfill, after(yg_sfm)
+bysort iso3: replace yg_sfmfill = yg_sfmfill[_n-1] if yg_sfmfill == . & yg_sfmfill[_n-1] ~= .
+
+generate yg_swfhfill = yg_swfh
+order yg_swfhfill, after(yg_swfh)
+bysort iso3: replace yg_swfhfill = yg_swfhfill[_n-1] if yg_swfhfill == . & yg_swfhfill[_n-1] ~= .
+
+generate yg_stcsfill = yg_stcs
+order yg_stcsfill, after(yg_stcs)
+bysort iso3: replace yg_stcsfill = yg_stcsfill[_n-1] if yg_stcsfill == . & yg_stcsfill[_n-1] ~= .
+
+generate yg_sclefill = yg_scle
+order yg_sclefill, after(yg_scle)
+bysort iso3: replace yg_sclefill = yg_sclefill[_n-1] if yg_sclefill == . & yg_sclefill[_n-1] ~= .
+
+generate yg_schrfill = yg_schr
+order yg_schrfill, after(yg_schr)
+bysort iso3: replace yg_schrfill = yg_schrfill[_n-1] if yg_schrfill == . & yg_schrfill[_n-1] ~= .
+
+generate yg_pcifill = yg_pci
+order yg_pcifill, after(yg_pci)
+bysort iso3: replace yg_pcifill = yg_pcifill[_n-1] if yg_pcifill == . & yg_pcifill[_n-1] ~= .
+
+generate yg_pgifill = yg_pgi
+order yg_pgifill, after(yg_pgi)
+bysort iso3: replace yg_pgifill = yg_pgifill[_n-1] if yg_pgifill == . & yg_pgifill[_n-1] ~= .
+
+generate yg_ihfill = yg_ih
+order yg_ihfill, after(yg_ih)
+bysort iso3: replace yg_ihfill = yg_ihfill[_n-1] if yg_ihfill == . & yg_ihfill[_n-1] ~= .
+
+generate yg_phffill = yg_phf
+order yg_phffill, after(yg_phf)
+bysort iso3: replace yg_phffill = yg_phffill[_n-1] if yg_phffill == . & yg_phffill[_n-1] ~= .
+
+generate yg_ffhfill = yg_ffh
+order yg_ffhfill, after(yg_ffh)
+bysort iso3: replace yg_ffhfill = yg_ffhfill[_n-1] if yg_ffhfill == . & yg_ffhfill[_n-1] ~= .
+
+generate yg_fffill = yg_ff
+order yg_fffill, after(yg_ff)
+bysort iso3: replace yg_fffill = yg_fffill[_n-1] if yg_fffill == . & yg_fffill[_n-1] ~= .
+
+generate yg_jlffill = yg_jlf
+order yg_jlffill, after(yg_jlf)
+bysort iso3: replace yg_jlffill = yg_jlffill[_n-1] if yg_jlffill == . & yg_jlffill[_n-1] ~= .
+
+generate yg_effill = yg_ef
+order yg_effill, after(yg_ef)
+bysort iso3: replace yg_effill = yg_effill[_n-1] if yg_effill == . & yg_effill[_n-1] ~= .
+
+generate yg_siffill = yg_sif
+order yg_siffill, after(yg_sif)
+bysort iso3: replace yg_siffill = yg_siffill[_n-1] if yg_siffill == . & yg_siffill[_n-1] ~= .
+
 *merge to masterfile
 
 save "~/Dropbox/JDS_Data/Global Daily COVID-19 Data/Build/Inputs/Processed Data/New_COVID_Data.dta", replace
