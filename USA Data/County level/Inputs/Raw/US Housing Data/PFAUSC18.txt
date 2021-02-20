@@ -1,0 +1,401 @@
+RECORD LAYOUT:  File 18 2020 Pop-Facts Advanced Data   (County Level)
+                 
+ITEM FIELDNAME  CONTENTS                                              TYPE SIZE
+
+   1 ID         Geography Code (Concatenated Geography Code)             A   15
+   2 STATE      FIPS State Code                                          A    2
+   3 COUNTY     FIPS County Code                                         A    3
+   4 CBSA_CODE  Core Based Statistical Area Code                         A    5
+   5 STNAME     State Name                                               A   20
+   6 CTYNAME    County Name                                              A   32
+   7 CBSA_NAME  Core Based Statistical Area Name                         A   50
+   8 YCOORD     Latitude                                                 F 10.6
+   9 XCOORD     Longitude                                                F 11.6
+
+                CY Group Quarters Population by Type                 
+
+  10 GQCOLLEGEC Current Year Group Quarters Population,                  I    9
+                Noninstitutional: College/University Student Housing 
+  11 GQMILITRYC Current Year Group Quarters Population,                  I    9
+                Noninstitutional: Military Quarters                  
+  12 GQONINST_C Current Year Group Quarters Population,                  I    9
+                Noninstitutional: Other Facilities                   
+  13 GQCORRECTC Current Year Group Quarters Population,                  I    9
+                Institutional: Correctional Facilities for Adults    
+  14 GQJUVENC   Current Year Group Quarters Population,                  I    9
+                Institutional: Juvenile Facilities                   
+  15 GQNURSEHMC Current Year Group Quarters Population,                  I    9
+                Institutional: Nursing Home                          
+  16 GQOTHINFAC Current Year Group Quarters Population,                  I    9
+                Institutional: Other Facilities                      
+
+                CY Occupied Housing Units by Tenure and Age          
+
+  17 RENTER_C   Current Year Housing Units, Renter-Occupied              I    9
+  18 RENT15_24C Current Year Renter-Occupied Households, Householder     I    9
+                Age 15 - 24                                          
+  19 RENT25_34C Current Year Renter-Occupied Households, Householder     I    9
+                Age 25 - 34                                          
+  20 RENT35_44C Current Year Renter-Occupied Households, Householder     I    9
+                Age 35 - 44                                          
+  21 RENT45_54C Current Year Renter-Occupied Households, Householder     I    9
+                Age 45 - 54                                          
+  22 RENT55_64C Current Year Renter-Occupied Households, Householder     I    9
+                Age 55 - 64                                          
+  23 RENT65_74C Current Year Renter-Occupied Households, Householder     I    9
+                Age 65 - 74                                          
+  24 RENT75_84C Current Year Renter-Occupied Households, Householder     I    9
+                Age 75 - 84                                          
+  25 RENT85P_C  Current Year Renter-Occupied Households, Householder     I    9
+                Age 85+                                              
+  26 MED_RENT_C Current Year Median Age of Householder,                  F  9.1
+                Renter-Occupied                                      
+                                                                     
+  27 OWNER_C    Current Year Housing Units, Owner-Occupied               I    9
+  28 OWN_15_24C Current Year Owner-Occupied Households, Householder      I    9
+                Age 15 - 24                                          
+  29 OWN_25_34C Current Year Owner-Occupied Households, Householder      I    9
+                Age 25 - 34                                          
+  30 OWN_35_44C Current Year Owner-Occupied Households, Householder      I    9
+                Age 35 - 44                                          
+  31 OWN_45_54C Current Year Owner-Occupied Households, Householder      I    9
+                Age 45 - 54                                          
+  32 OWN_55_64C Current Year Owner-Occupied Households, Householder      I    9
+                Age 55 - 64                                          
+  33 OWN_65_74C Current Year Owner-Occupied Households, Householder      I    9
+                Age 65 - 74                                          
+  34 OWN_75_84C Current Year Owner-Occupied Households, Householder      I    9
+                Age 75 - 84                                          
+  35 OWN_85P_C  Current Year Owner-Occupied Households, Householder      I    9
+                Age 85+                                              
+  36 MED_OWN_C  Current Year Median Age of Householder,                  F  9.1
+                Owner-Occupied                                       
+
+                CY Households by Tenure, Ethnicity and Race          
+
+  37 RENT_WHT_C Current Year Renter-Occupied Households, White Alone     I    9
+                Householder                                          
+  38 RENT_BLK_C Current Year Renter-Occupied Households,                 I    9
+                Black/African American Alone Householder             
+  39 RENT_AMI_C Current Year Renter-Occupied Households, American        I    9
+                Indian/Alaskan Native Alone Householder              
+  40 RENT_ASI_C Current Year Renter-Occupied Households, Asian Alone     I    9
+                Householder                                          
+  41 RENT_PI_C  Current Year Renter-Occupied Households, Native          I    9
+                Hawaiian/Pacific Islander Alone Householder          
+  42 RENT_OTH_C Current Year Renter-Occupied Households, Some Other      I    9
+                Race Alone Householder                               
+  43 RENT_TWO_C Current Year Renter-Occupied Households, Two or More     I    9
+                Races Householder                                    
+                                                                     
+  44 RENTNHWHTC Current Year Renter-Occupied Households, Not             I    9
+                Hispanic/Latino, White Alone Householder             
+  45 RENT_HSP_C Current Year Renter-Occupied Households,                 I    9
+                Hispanic/Latino Householder                          
+                                                                     
+  46 OWN_WHT_C  Current Year Owner-Occupied Households, White Alone      I    9
+                Householder                                          
+  47 OWN_BLK_C  Current Year Owner-Occupied Households,                  I    9
+                Black/African American Alone Householder             
+  48 OWN_AMI_C  Current Year Owner-Occupied Households, American         I    9
+                Indian/Alaskan Native Alone Householder              
+  49 OWN_ASI_C  Current Year Owner-Occupied Households, Asian Alone      I    9
+                Householder                                          
+  50 OWN_PI_C   Current Year Owner-Occupied Households, Native           I    9
+                Hawaiian/Pacific Islander Alone Householder          
+  51 OWN_OTH_C  Current Year Owner-Occupied Households, Some Other       I    9
+                Race Alone Householder                               
+  52 OWN_TWO_C  Current Year Owner-Occupied Households, Two or More      I    9
+                Races Householder                                    
+                                                                     
+  53 OWNNHWHTC  Current Year Owner-Occupied Households, Not              I    9
+                Hispanic/Latino, White Alone Householder             
+  54 OWN_HSP_C  Current Year Owner-Occupied Households,                  I    9
+                Hispanic/Latino Householder                          
+
+                CY Households by Ethnicity and Race                  
+
+  55 H_HSP_C    Current Year Households, Hispanic/Latino Householder     I    9
+  56 H_NHSP_C   Current Year Households, Not Hispanic/Latino             I    9
+                Householder                                          
+                                                                     
+  57 H_HSP_WHTC Current Year Households, Hispanic/Latino                 I    9
+                Householder, White Alone                             
+  58 H_HSP_BLKC Current Year Households, Hispanic/Latino                 I    9
+                Householder, Black/African American Alone            
+  59 H_HSP_AMIC Current Year Households, Hispanic/Latino                 I    9
+                Householder, American Indian/Alaskan Native Alone    
+  60 H_HSP_ASIC Current Year Households, Hispanic/Latino                 I    9
+                Householder, Asian Alone                             
+  61 H_HSP_PI_C Current Year Households, Hispanic/Latino                 I    9
+                Householder, Native Hawaiian/Pacific Islander Alone  
+  62 H_HSP_OTHC Current Year Households, Hispanic/Latino                 I    9
+                Householder, Some Other Race Alone                   
+  63 H_HSP_2P_C Current Year Households, Hispanic/Latino                 I    9
+                Householder, Two or More Races                       
+                                                                     
+  64 H_NHS_WHTC Current Year Households, Not Hispanic/Latino             I    9
+                Householder, White Alone                             
+  65 H_NHS_BLKC Current Year Households, Not Hispanic/Latino             I    9
+                Householder, Black/African American Alone            
+  66 H_NHS_AMIC Current Year Households, Not Hispanic/Latino             I    9
+                Householder, American Indian/Alaskan Native Alone    
+  67 H_NHS_ASIC Current Year Households, Not Hispanic/Latino             I    9
+                Householder, Asian Alone                             
+  68 H_NHS_PI_C Current Year Households, Not Hispanic/Latino             I    9
+                Householder, Native Hawaiian/Pacific Islander Alone  
+  69 H_NHS_OTHC Current Year Households, Not Hispanic/Latino             I    9
+                Householder, Some Other Race Alone                   
+  70 H_NHS_2P_C Current Year Households, Not Hispanic/Latino             I    9
+                Householder, Two or More Races                       
+
+                CY Owner-Occupied Housing Units by Value             
+
+  71 VAL_LT_10C Current Year Owner-Occupied Housing Units, Value <       I    9
+                $10,000                                              
+  72 VAL_10_15C Current Year Owner-Occupied Housing Units, Value         I    9
+                $10,000 - $14,999                                    
+  73 VAL_15_20C Current Year Owner-Occupied Housing Units, Value         I    9
+                $15,000 - $19,999                                    
+  74 VAL_20_25C Current Year Owner-Occupied Housing Units, Value         I    9
+                $20,000 - $24,999                                    
+  75 VAL_25_30C Current Year Owner-Occupied Housing Units, Value         I    9
+                $25,000 - $29,999                                    
+  76 VAL_30_35C Current Year Owner-Occupied Housing Units, Value         I    9
+                $30,000 - $34,999                                    
+  77 VAL_35_40C Current Year Owner-Occupied Housing Units, Value         I    9
+                $35,000 - $39,999                                    
+  78 VAL_40_50C Current Year Owner-Occupied Housing Units, Value         I    9
+                $40,000 - $49,999                                    
+  79 VAL_50_60C Current Year Owner-Occupied Housing Units, Value         I    9
+                $50,000 - $59,999                                    
+  80 VAL_60_70C Current Year Owner-Occupied Housing Units, Value         I    9
+                $60,000 - $69,999                                    
+  81 VAL_70_80C Current Year Owner-Occupied Housing Units, Value         I    9
+                $70,000 - $79,999                                    
+  82 VAL_80_90C Current Year Owner-Occupied Housing Units, Value         I    9
+                $80,000 - $89,999                                    
+  83 VAL_90100C Current Year Owner-Occupied Housing Units, Value         I    9
+                $90,000 - $99,999                                    
+  84 VAL100125C Current Year Owner-Occupied Housing Units, Value         I    9
+                $100,000 - $124,999                                  
+  85 VAL125150C Current Year Owner-Occupied Housing Units, Value         I    9
+                $125,000 - $149,999                                  
+  86 VAL150175C Current Year Owner-Occupied Housing Units, Value         I    9
+                $150,000 - $174,999                                  
+  87 VAL175200C Current Year Owner-Occupied Housing Units, Value         I    9
+                $175,000 - $199,999                                  
+  88 VAL200250C Current Year Owner-Occupied Housing Units, Value         I    9
+                $200,000 - $249,999                                  
+  89 VAL250300C Current Year Owner-Occupied Housing Units, Value         I    9
+                $250,000 - $299,999                                  
+  90 VAL300400C Current Year Owner-Occupied Housing Units, Value         I    9
+                $300,000 - $399,999                                  
+  91 VAL400500C Current Year Owner-Occupied Housing Units, Value         I    9
+                $400,000 - $499,999                                  
+  92 VAL500750C Current Year Owner-Occupied Housing Units, Value         I    9
+                $500,000 - $749,999                                  
+  93 VAL7501MLC Current Year Owner-Occupied Housing Units, Value         I    9
+                $750,000 - $999,999                                  
+  94 VAL1M1P5MC Current Year Owner-Occupied Housing Units, Value         I    9
+                $1,000,000 - $1,499,999                              
+  95 VAL1P5M2MC Current Year Owner-Occupied Housing Units, Value         I    9
+                $1,500,000 - $1,999,999                              
+  96 VAL_2MILPC Current Year Owner-Occupied Housing Units, Value         I    9
+                $2,000,000+                                          
+  97 MED_VALUEC Current Year Median Value, Owner-Occupied Housing        C    9
+                Units                                                
+
+                CY Owner-Occupied Housing Units by Mortgage Status   
+
+  98 OWN_2ND_C  Current Year Owner-Occupied Housing Units, With          I    9
+                Mortgage and Second Mortgage Only                    
+  99 OWN_HE_C   Current Year Owner-Occupied Housing Units, With          I    9
+                Mortgage and Home Equity Loan Only                   
+ 100 OWNHE2NDC  Current Year Owner-Occupied Housing Units, With          I    9
+                Mortgage and Both Second Mortgage and Home Equity    
+                Loan                                                 
+ 101 OWNNHE2NDC Current Year Owner-Occupied Housing Units, With          I    9
+                Mortgage and No Second Mortgage and No Home Equity   
+                Loan                                                 
+ 102 OWNN_C     Current Year Owner-Occupied Housing Units, No            I    9
+                Mortgage                                             
+
+                CY Households by Number of People in Household       
+
+ 103 HH_1PERS_C Current Year Households, 1-Person Household              I    9
+                                                                     
+ 104 NONFAM_C   Current Year NonFamily Households                        I    9
+ 105 NFH_1PERSC Current Year NonFamily Households, 1-Person Household    I    9
+ 106 NFH_2PERSC Current Year NonFamily Households, 2-Person Household    I    9
+ 107 NFH_3PERSC Current Year NonFamily Households, 3-Person Household    I    9
+ 108 NFH_4PERSC Current Year NonFamily Households, 4-Person Household    I    9
+ 109 NFH_5PERSC Current Year NonFamily Households, 5-Person Household    I    9
+ 110 NFH_6PERSC Current Year NonFamily Households, 6-Person Household    I    9
+ 111 NFH7PPERSC Current Year NonFamily Households, 7+ Person             I    9
+                Household                                            
+ 112 NF_2PERS_C Current Year NonFamily Households, 2+ Person             I    9
+                Household                                            
+                                                                     
+ 113 FAM2PERS_C Current Year Family Households, 2-Person Household       I    9
+ 114 FAM3PERS_C Current Year Family Households, 3-Person Household       I    9
+ 115 FAM4PERS_C Current Year Family Households, 4-Person Household       I    9
+ 116 FAM5PERS_C Current Year Family Households, 5-Person Household       I    9
+ 117 FAM6PERS_C Current Year Family Households, 6-Person Household       I    9
+ 118 FAM7PPERSC Current Year Family Households, 7+ Person Household      I    9
+
+                CY Households with Unmarried Partners by Sex of      
+                Partner                                              
+
+ 119 H_UM_MM_C  Current Year Households, Unmarried Male Householder      I    9
+                With Male Partner                                    
+ 120 H_UM_MF_C  Current Year Households, Unmarried Male Householder      I    9
+                With Female Partner                                  
+ 121 H_UM_FF_C  Current Year Households, Unmarried Female                I    9
+                Householder With Female Partner                      
+ 122 H_UM_FM_C  Current Year Households, Unmarried Female                I    9
+                Householder With Male Partner                        
+ 123 H_OTHEXUMC Current Year Households, All Households Except           I    9
+                Unmarried-Partner Households                         
+
+                CY Households by Presence of People Under 18         
+
+ 124 MC_FAM_WCC Current Year Households, With People < 18 Years Old,     I    9
+                Married Couple Family                                
+ 125 ML_FAM_WCC Current Year Households, With People < 18 Years Old,     I    9
+                Other Family Household, Male Householder             
+ 126 FM_FAM_WCC Current Year Households, With People < 18 Years Old,     I    9
+                Other Family Household, Female Householder           
+ 127 NFH_MCHLDC Current Year Households, With People < 18 Years Old,     I    9
+                NonFamily Household, Male Householder                
+ 128 NFH_FCHLDC Current Year Households, With People < 18 Years Old,     I    9
+                NonFamily Household, Female Householder              
+                                                                     
+ 129 MC_FAM_NCC Current Year Households, No People < 18 Years Old,       I    9
+                Married Couple Family                                
+ 130 ML_FAM_NCC Current Year Households, No People < 18 Years Old,       I    9
+                Other Family Household, Male Householder             
+ 131 FM_FAM_NCC Current Year Households, No People < 18 Years Old,       I    9
+                Other Family Household, Female Householder           
+ 132 NFHMNCHLDC Current Year Households, No People < 18 Years Old,       I    9
+                NonFamily Household, Male Householder                
+ 133 NFHFNCHLDC Current Year Households, No People < 18 Years Old,       I    9
+                NonFamily Household, Female Householder              
+
+                CY Family Households by Presence of Own Children     
+
+ 134 MCOWNCHLDC Current Year Family Households, With Own Kids,           I    9
+                Married Couple Family                                
+ 135 FMOWNCHLDC Current Year Family Households, With Own Kids, Other     I    9
+                Family Household, Male Householder                   
+ 136 FFOWNCHLDC Current Year Family Households, With Own Kids, Other     I    9
+                Family Household, Female Householder                 
+ 137 MC_NO_OWNC Current Year Family Households, Without Own Kids,        I    9
+                Married Couple Family                                
+ 138 FM_NO_OWNC Current Year Family Households, Without Own Kids,        I    9
+                Other Family Household, Male Householder             
+ 139 FF_NO_OWNC Current Year Family Households, Without Own Kids,        I    9
+                Other Family Household, Female Householder           
+
+                CY Housing Units by Year Structure Built             
+
+ 140 BLT_L39_C  Current Year Housing Units, Built 1939 or Earlier        I    9
+ 141 BLT_40_49C Current Year Housing Units, Built 1940 to 1949           I    9
+ 142 BLT_50_59C Current Year Housing Units, Built 1950 to 1959           I    9
+ 143 BLT_60_69C Current Year Housing Units, Built 1960 to 1969           I    9
+ 144 BLT_70_79C Current Year Housing Units, Built 1970 to 1979           I    9
+ 145 BLT_80_89C Current Year Housing Units, Built 1980 to 1989           I    9
+ 146 BLT_90_99C Current Year Housing Units, Built 1990 to 1999           I    9
+ 147 BLT_00_09C Current Year Housing Units, Built 2000 to 2009           I    9
+ 148 BLT_10_13C Current Year Housing Units, Built 2010 to 2013           I    9
+ 149 BLT_2014C  Current Year Housing Units, Built 2014 or Later          I    9
+ 150 MED_YRBLTC Current Year Median Year Housing Unit Structure Built    I    4
+ 151 AGG_YRBLTC Current Year Aggregate Years Housing Unit Structure      I   15
+                Built                                                
+
+                CY Housing Units by Units in Structure               
+
+ 152 UNITS1DETC Current Year Housing Units, 1 Unit Detached              I    9
+ 153 UNITS1ATTC Current Year Housing Units, 1 Unit Attached              I    9
+ 154 UNITS_2_C  Current Year Housing Units, 2 Units                      I    9
+ 155 UNITS_3_4C Current Year Housing Units, 3 to 4 Units                 I    9
+ 156 UNITS_5_9C Current Year Housing Units, 5 to 9 Units                 I    9
+ 157 UNITS1019C Current Year Housing Units, 10 to 19 Units               I    9
+ 158 UNITS2049C Current Year Housing Units, 20 to 49 Units               I    9
+ 159 UNITS_50PC Current Year Housing Units, 50+ Units                    I    9
+ 160 MOBILEHOMC Current Year Housing Units, Mobile Home                  I    9
+ 161 UNITSOTHRC Current Year Housing Units, Other Unit Type              I    9
+
+                CY Occupied Housing Units by Year Householder Moved  
+                In                                                   
+
+ 162 ROMOVE79_C Current Year Renter-Occupied Housing Units,              I    9
+                Householder Moved in 1979 or earlier                 
+ 163 ROMOV8089C Current Year Renter-Occupied Housing Units,              I    9
+                Householder Moved in 1980 to 1989                    
+ 164 ROMOV9099C Current Year Renter-Occupied Housing Units,              I    9
+                Householder Moved in 1990 to 1999                    
+ 165 ROMOV0009C Current Year Renter-Occupied Housing Units,              I    9
+                Householder Moved in 2000 to 2009                    
+ 166 ROMOV1014C Current Year Renter-Occupied Housing Units,              I    9
+                Householder Moved in 2010 to 2014                    
+ 167 ROMOV2015C Current Year Renter-Occupied Housing Units,              I    9
+                Householder Moved in 2015 or Later                   
+ 168 MEDRENMOVC Current Year Median Householder Years of Residence,      F  9.1
+                Renter-Occupied Housing Units                        
+ 169 AGGRENMOVC Current Year Aggregate Householder Years of              I   15
+                Residence, Renter-Occupied Housing Units             
+                                                                     
+ 170 OOMOVE79_C Current Year Owner-Occupied Housing Units,               I    9
+                Householder Moved in 1979 or Earlier                 
+ 171 OOMOV8089C Current Year Owner-Occupied Housing Units,               I    9
+                Householder Moved in 1980 to 1989                    
+ 172 OOMOV9099C Current Year Owner-Occupied Housing Units,               I    9
+                Householder Moved in 1990 to 1999                    
+ 173 OOMOV0009C Current Year Owner-Occupied Housing Units,               I    9
+                Householder Moved in 2000 to 2009                    
+ 174 OOMOV1014C Current Year Owner-Occupied Housing Units,               I    9
+                Householder Moved in 2010 to 2014                    
+ 175 OOMOV2015C Current Year Owner-Occupied Housing Units,               I    9
+                Householder Moved in 2015 or Later                   
+ 176 MEDOWNMOVC Current Year Median Householder Years of Residence,      F  9.1
+                Owner-Occupied Housing Units                         
+ 177 AGGOWNMOVC Current Year Aggregate Householder Years of              I   15
+                Residence, Owner-Occupied Housing Units              
+
+                CY Occupied Housing Units by Vehicles Available      
+
+ 178 VEHRENTNOC Current Year Renter-Occupied Housing Units, No           I    9
+                Vehicles                                             
+ 179 VEH_RENT1C Current Year Renter-Occupied Housing Units, 1 Vehicle    I    9
+ 180 VEH_RENT2C Current Year Renter-Occupied Housing Units, 2            I    9
+                Vehicles                                             
+ 181 VEH_RENT3C Current Year Renter-Occupied Housing Units, 3            I    9
+                Vehicles                                             
+ 182 VEH_RENT4C Current Year Renter-Occupied Housing Units, 4            I    9
+                Vehicles                                             
+ 183 VEHRENT5PC Current Year Renter-Occupied Housing Units, 5+           I    9
+                Vehicles                                             
+                                                                     
+ 184 VEH_OWNNOC Current Year Owner-Occupied Housing Units, No            I    9
+                Vehicles                                             
+ 185 VEH_OWN1_C Current Year Owner-Occupied Housing Units, 1 Vehicle     I    9
+ 186 VEH_OWN2_C Current Year Owner-Occupied Housing Units, 2 Vehicles    I    9
+ 187 VEH_OWN3_C Current Year Owner-Occupied Housing Units, 3 Vehicles    I    9
+ 188 VEH_OWN4_C Current Year Owner-Occupied Housing Units, 4 Vehicles    I    9
+ 189 VEH_OWN5PC Current Year Owner-Occupied Housing Units, 5+            I    9
+                Vehicles                                             
+
+                CY Vacant Housing Units by Vacancy Status            
+
+ 190 VC_FORR_C  Current Year Vacant Housing Units, For Rent              I    9
+ 191 VC_RNOCC_C Current Year Vacant Housing Units, Rented But Not        I    9
+                Occupied                                             
+ 192 VC_FORS_C  Current Year Vacant Housing Units, For Sale              I    9
+ 193 VC_SNOCC_C Current Year Vacant Housing Units, Sold But Not          I    9
+                Occupied                                             
+ 194 VC_SEARECC Current Year Vacant Housing Units, For                   I    9
+                Seasonal/Recreational/Occasional Use                 
+ 195 VC_MIGRW_C Current Year Vacant Housing Units, For Migrant           I    9
+                Workers                                              
+ 196 VC_OTH_C   Current Year Vacant Housing Units, Other Vacant          I    9

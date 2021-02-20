@@ -1,0 +1,186 @@
+﻿Country,firstday,ISO Code
+China,0,CN
+Japan,15,JP
+"Korea, Republic of",20,KR
+United States,21,US
+Singapore,24,SG
+France,25,FR
+Australia,25,AU
+Canada,26,CA
+Germany,28,DE
+United Kingdom,31,GB
+Italy,31,IT
+Russia,32,RU
+Sweden,32,SE
+Belgium,35,BE
+Iran,51,IR
+Switzerland,57,CH
+Austria,57,AT
+Brazil,57,BR
+Denmark,58,DK
+Norway,58,NO
+Netherlands,59,NL
+Iceland,60,IS
+Czechia,62,CZ
+Portugal,63,PT
+San Marino,64,SM
+Bahrain,64,BH
+Malaysia,64,MY
+Greece,65,GR
+Romania,66,RO
+Philippines,67,PH
+Vietnam,67,VNM
+Poland,67,PL
+Hungary,67,HU
+Saudi Arabia,68,SA
+Kuwait,68,KW
+Egypt,69,EG
+Costa Rica,69,CR
+Peru,69,PE
+Albania,69,AL
+Chile,69,CL
+India,70,IN
+Pakistan,70,PK
+Tunisia,70,TN
+Panama,70,PA
+Slovakia,71,SK
+Serbia,71,RS
+Moldova,71,MDA
+Estonia,71,EE
+Ireland,71,IE
+Slovenia,71,SI
+Taiwan,71,TW
+Iraq,71,IQ
+Croatia,71,HR
+Israel,71,IL
+Algeria,72,DZ
+Sri Lanka,72,LK
+Morocco,72,MA
+South Africa,72,ZA
+Mexico,72,MX
+Finland,72,FI
+Bulgaria,72,BG
+Brunei,72,BRN
+Argentina,73,AR
+Trinidad and Tobago,73,TT
+Kenya,74,KE
+Dominican Republic,74,DO
+Ethiopia,74,ET
+"Congo, Democratic Republic of the",74,CD
+Oman,74,OM
+Indonesia,74,ID
+Thailand,74,TH
+Ecuador,74,EC
+Sudan,74,SD
+Qatar,74,QA
+Colombia,74,CO
+Cyprus,74,CY
+Kazakhstan,75,KZ
+Burkina Faso,75,BF
+Cameroon,75,CM
+Nigeria,75,NG
+United Arab Emirates,75,AE
+Afghanistan,75,AF
+Rwanda,75,RW
+Jordan,75,JO
+Gabon,75,GA
+Uruguay,75,UY
+Guatemala,75,GT
+Azerbaijan,75,AZ
+Venezuela,75,VE
+Namibia,75,NA
+Lebanon,75,LB
+Ghana,75,GH
+Seychelles,75,SC
+Mauritania,75,MR
+Eswatini,75,SWZ
+Guyana,76,GY
+Jamaica,76,JM
+Uzbekistan,76,UZ
+Bosnia and Herzegovina,76,BA
+Honduras,76,HN
+Paraguay,76,PY
+Andorra,76,AD
+Ukraine,76,UA
+Luxembourg,76,LU
+Turkey,76,TR
+Tanzania,77,TZ
+Bolivia,77,BO
+Bangladesh,77,BD
+Barbados,78,BB
+Gambia,78,GM
+Cuba,78,CU
+Mongolia,78,MN
+New Zealand,78,NZ
+Kyrgyzstan,79,KG
+Zambia,79,ZM
+El Salvador,79,SV
+Djibouti,79,DJ
+Nicaragua,79,NI
+Mauritius,80,MU
+Chad,80,TD
+Niger,81,NE
+Papua New Guinea,81,PG
+Zimbabwe,81,ZW
+Madagascar,81,MG
+Cabo Verde,81,CPV
+Angola,82,AO
+Uganda,82,UG
+Dominica,83,DM
+Syria,83,SY
+Mozambique,83,MZ
+Belize,84,BZ
+Myanmar,84,MM
+Laos,85,LAO
+Libya,85,LY
+Mali,86,ML
+Botswana,92,BW
+Sierra Leone,92,SL
+Aruba,92,AW
+Burundi,92,BI
+Malawi,94,MW
+South Sudan,97,SS
+West Bank and Gaza,97,PS
+Yemen,127,YE
+Suriname,127,SR
+Grenada,127,GD
+Saint Lucia,127,LC
+Holy See,127,VAT
+Equatorial Guinea,127,GQ
+Congo,127,CG
+Saint Vincent and the Grenadines,127,VC
+Togo,127,TG
+Montenegro,127,ME
+Guinea-Bissau,127,GW
+Guinea,127,GN
+Sao Tome and Principe,127,ST
+Côte d'Ivoire,127,CI
+North Macedonia,127,MKD
+Somalia,127,SO
+Nepal,127,NP
+Belarus,127,BY
+Benin,127,BJ
+Antigua and Barbuda,127,AG
+Haiti,127,HT
+Timor-Leste,127,TL
+Cambodia,127,KH
+Fiji,127,FJ
+Monaco,127,MC
+Lithuania,127,LT
+Western Sahara,127,EH
+Bhutan,127,BT
+Senegal,127,SN
+Liechtenstein,127,LI
+Armenia,127,AM
+Latvia,127,LV
+Maldives,127,MV
+Malta,127,MT
+Liberia,127,LR
+Saint Kitts and Nevis,127,KN
+Bahamas,127,BS
+Central African Republic,127,CF
+Georgia,127,GE
+Eritrea,127,ER
+Spain,129,ES
+Hong Kong,131,HK
+Kosovo,131,RKS

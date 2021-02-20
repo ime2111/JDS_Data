@@ -1,0 +1,4 @@
+regress pct_gop_2020 evanrate pct_nonhisp_white pct_bach unemploy_rate patents_p_cap cbp2018_pct_emp13 pct_black
+regress pct_gop_2020 evanrate pct_nonhisp_white pct_bach unemploy_rate patents_p_cap cbp2018_pct_emp13 pct_black POPPCT_URBAN pct_asian
+regress pct_gop_2020 evanrate pct_nonhisp_white pct_bach unemploy_rate patents_p_cap cbp2018_pct_emp13 pct_black POPPCT_URBAN pct_asian ave_hh_sz
+
