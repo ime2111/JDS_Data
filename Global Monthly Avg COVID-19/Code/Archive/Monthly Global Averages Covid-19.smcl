@@ -1,0 +1,417 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/isminiethridge/Dropbox/JDS_Data/Global Data/Code/Monthly Global Averages Covid-19.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}13 Jan 2021, 09:48:17
+
+{com}. use "/Users/isminiethridge/Dropbox/IE_COVID-19/1. Global Data/Global Masterfiles/Github_complete.dta"
+
+. use "/Users/isminiethridge/Dropbox/JDS_Data/Global Data/Masterfiles/Global COVID-19 Data.dta"
+
+. drop month
+
+. gen month = 0
+
+. order month, after(day)
+
+. replace month = 1 if day <= 31
+{txt}(6,101 real changes made)
+
+{com}. replace month = 2 if day > 31 & day <= 60
+{txt}(6,076 real changes made)
+
+{com}. replace month = 3 if day > 60 & day <= 91
+{txt}(6,608 real changes made)
+
+{com}. replace month = 4 if day > 91 & day <= 121
+{txt}(6,569 real changes made)
+
+{com}. replace month = 5 if day > 121 & day <= 152
+{txt}(6,789 real changes made)
+
+{com}. replace month = 6 if day > 152 & day <= 182
+{txt}(6,570 real changes made)
+
+{com}. replace month = 7 if day > 182 & day <= 213
+{txt}(6,789 real changes made)
+
+{com}. replace month = 8 if day > 213 & day <= 244
+{txt}(6,756 real changes made)
+
+{com}. replace month = 9 if day > 244 & day <= 274
+{txt}(6,530 real changes made)
+
+{com}. replace month = 10 if day > 274 & day <= 305
+{txt}(6,773 real changes made)
+
+{com}. replace month = 11 if day > 305 & day <= 335
+{txt}(6,390 real changes made)
+
+{com}. replace month = 12 if day > 335 & day <= 366
+{txt}(6,235 real changes made)
+
+{com}. replace month = 13 if day > 366 & day <= 377
+{txt}(2,205 real changes made)
+
+{com}. keep iso3 country_un country month oecd g20 rcep asean eu Western_Europe pop2018 GDP_pc_PPP ag2019 gini1618 popden pct_migrant Christians Charismatics IndependentCharismatics Pentecostals PentecostalsCharismatics PentecostalsCharismaticsas asia_pacific nc nd ncpm ndpm nt nts ntpt ntpts tpc_avg pos_rate_avg ERR sdsn_positive_test_rate_smoothed transmission_class yg_fc-gm_cw
+
+. 
+. save "/Users/isminiethridge/Dropbox/JDS_Data/Global Data/Build/Global Monthly Avg Covid-19/Global Monthly Avg COVID-19.dta"
+{txt}file /Users/isminiethridge/Dropbox/JDS_Data/Global Data/Build/Global Monthly Avg Covid-19/Global Monthly Avg COVID-19.dta saved
+
+{com}. egen iso_month = concat(iso month), punct(-)
+
+. order iso_month, after(month)
+
+. order asia_pacific, after(asean)
+
+. save "/Users/isminiethridge/Dropbox/JDS_Data/Global Data/Build/Global Monthly Avg Covid-19/Global Monthly Avg COVID-19.dta", replace
+{txt}file /Users/isminiethridge/Dropbox/JDS_Data/Global Data/Build/Global Monthly Avg Covid-19/Global Monthly Avg COVID-19.dta saved
+
+{com}. preserve
+
+. 
+. collapse (firstnm) iso3 country_un month oecd rcep g20 asean eu Western_Europe (mean) pop2018-transmission_class, by(iso_month)
+
+. drop if country_un == ""
+{txt}(39 observations deleted)
+
+{com}. 
+. save "/Users/isminiethridge/Dropbox/JDS_Data/Global Data/Build/Global Monthly Avg Covid-19/Global Monthly Avg COVID-19.dta", replace
+{txt}file /Users/isminiethridge/Dropbox/JDS_Data/Global Data/Build/Global Monthly Avg Covid-19/Global Monthly Avg COVID-19.dta saved
+
+{com}. clear
+
+. use "/Users/isminiethridge/Dropbox/IE_COVID-19/1. Global Data/Global Masterfiles/Monthly/Average Temperature Month Country 2012 clean.dta"
+
+. 
+. import delimited "/Users/isminiethridge/Dropbox/JDS_Data/Global Monthly Avg COVID-19/GlobalLandTemperatures_GlobalLandTemperaturesByCountry.csv", clear 
+{res}{text}(4 vars, 577,462 obs)
+
+{com}. sort dt
+
+. destring dt, generate(day)
+{txt}dt: contains nonnumeric characters; no {res}generate
+
+{com}. clear
+
+. 
+. import delimited "/Users/isminiethridge/Dropbox/JDS_Data/Global Monthly Avg COVID-19/GlobalLandTemperatures_GlobalLandTemperaturesByCountry.csv", clear 
+{res}{text}(4 vars, 577,462 obs)
+
+{com}. keep if substr(dt, 1, 4) == "2013"
+{txt}(575,275 observations deleted)
+
+{com}. 
+. import excel "/Users/isminiethridge/Dropbox/IE_COVID-19/1. Global Data/Fixed/Temperature/Average Temperature Month Country 2012.xlsx", sheet("Sheet1") firstrow clear
+{res}
+{com}. rename County country
+{res}{err}variable {bf}County{sf} not found
+{txt}{search r(111), local:r(111);}
+
+{com}. rename Country country
+{res}
+{com}. merge 1:1 country using "/Users/isminiethridge/Dropbox/IE_COVID-19/1. Global Data/ISO codes and regions/ISO codes.dta", generate(_merge_temp)
+{res}{err}{p 0 4 2}
+variable{err} country
+does not uniquely identify observations in the
+master data
+{p_end}
+{txt}{search r(459), local:r(459);}
+
+{com}. merge m:1 country using "/Users/isminiethridge/Dropbox/IE_COVID-19/1. Global Data/ISO codes and regions/ISO codes.dta", generate(_merge_temp)
+{res}{txt}{p 0 7 2}
+(note: variable
+country was 
+str41, now str52 to accommodate using data's values)
+{p_end}
+
+{col 5}Result{col 38}# of obs.
+{col 5}{hline 41}
+{col 5}not matched{col 30}{res}             813
+{txt}{col 9}from master{col 30}{res}             744{txt}  (_merge_temp==1)
+{col 9}from using{col 30}{res}              69{txt}  (_merge_temp==2)
+
+{col 5}matched{col 30}{res}           2,160{txt}  (_merge_temp==3)
+{col 5}{hline 41}
+
+{com}. replace ISO = "ATG" if country == "Antigua And Barbuda"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "BOL" if country == "Bolivia"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "BES" if country == "Bonaire, Saint Eustatius And Saba"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "BIH" if country == "Bosnia And Herzegovina"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "VGB" if country == "British Virgin Islands"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "MMR" if country == "Burma"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "CPV" if country == "Cape Verde"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "COD" if country == "Congo (Democratic Republic Of The)"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "CUW" if country == "Cura√ßao"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "CZE" if country == "Czech Republic"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "CIV" if country == "C√¥te D'Ivoire"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "DNK" if country == "Denmark (Europe)"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "FLK" if country == "Falkland Islands (Islas Malvinas)"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "FSM" if country == "Federated States Of Micronesia"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "FRA" if country == "France (Europe)"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "PSE" if country == "Gaza Strip"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "GNB" if country == "Guinea Bissau"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "HMD" if country == "Heard Island And Mcdonald Islands"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "IRN" if country == "Iran"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "IRN" if country == "Iran"
+{txt}(0 real changes made)
+
+{com}. replace ISO = "IMN" if country == "Isle Of Man"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "UMI" if country == "Kingman Reef"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "LAO" if country == "Laos"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "MAC" if country == "Macau"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "MKD" if country == "Macedonia"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "MDA" if country == "Moldova"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "NLD" if country == "Netherlands (Europe)"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "PRK" if country == "North Korea"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "REU" if country == "Reunion"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "RUS" if country == "Russia"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "BLM" if country == "Saint Barth√©lemy"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "KNA" if country == "Saint Kitts And Nevis"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "MAF" if country == "Saint Martin"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "SPM" if country == "Saint Pierre And Miquelon"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "VCT" if country == "Saint Vincent And The Grenadines"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "STP" if country == "Sao Tome And Principe"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "SXM" if country == "Sint Maarten"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "KOR" if country == "South Korea"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "SJM" if country == "Svalbard And Jan Mayen"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "SWZ" if country == "Swaziland"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "SYR" if country == "Syria"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "TWN" if country == "Taiwan"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "TZA" if country == "Tanzania"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "TLS" if country == "Timor Leste"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "TTO" if country == "Trinidad And Tobago"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "TCA" if country == "Turks And Caicas Islands"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "GBR" if country == "United Kingdom"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "USA" if country == "United States"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "VEN" if country == "Venezuela"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "VNM" if country == "Vietnam"
+{txt}(12 real changes made)
+
+{com}. replace ISO = "VIR" if country == "Virgin Islands"
+{txt}(12 real changes made)
+
+{com}. sort ISO
+
+. replace ISO = "GBR" if country == "United Kingdom (Europe)"
+{txt}(12 real changes made)
+
+{com}. sort ISO
+
+. drop if _merge_temp == 2
+{txt}(69 observations deleted)
+
+{com}. drop if ISO == ""
+{txt}(132 observations deleted)
+
+{com}. duplicates report ISO
+
+{p 0 4}{txt}Duplicates in terms of {res} ISO{p_end}
+
+{txt}{hline 10}{c TT}{hline 27}
+   copies {c |} observations       surplus
+{hline 10}{c +}{hline 27}
+       12 {c |}         {res}2676          2453
+       {txt}24 {c |}           {res}96            92
+{txt}{hline 10}{c BT}{hline 27}
+
+{com}. drop if country == "Denmark"
+{txt}(12 observations deleted)
+
+{com}. drop if country == "France"
+{txt}(12 observations deleted)
+
+{com}. list ISO == "GBR"
+{err}== invalid name
+{txt}{search r(198), local:r(198);}
+
+{com}. drop if country == "United Kingdom"
+{txt}(12 observations deleted)
+
+{com}. drop if country == "Netherlands"
+{txt}(12 observations deleted)
+
+{com}. duplicates report ISO
+
+{p 0 4}{txt}Duplicates in terms of {res} ISO{p_end}
+
+{txt}{hline 10}{c TT}{hline 27}
+   copies {c |} observations       surplus
+{hline 10}{c +}{hline 27}
+       12 {c |}         {res}2724          2497
+{txt}{hline 10}{c BT}{hline 27}
+
+{com}. save "/Users/isminiethridge/Dropbox/JDS_Data/Global Monthly Avg COVID-19/Input Data/Avg Monthly Temp by Country 2012 clean.dta"
+{txt}file /Users/isminiethridge/Dropbox/JDS_Data/Global Monthly Avg COVID-19/Input Data/Avg Monthly Temp by Country 2012 clean.dta saved
+
+{com}. drop _merge_temp
+
+. sort country dt
+
+. save "/Users/isminiethridge/Dropbox/JDS_Data/Global Monthly Avg COVID-19/Input Data/Avg Monthly Temp by Country 2012 clean.dta", replace
+{txt}file /Users/isminiethridge/Dropbox/JDS_Data/Global Monthly Avg COVID-19/Input Data/Avg Monthly Temp by Country 2012 clean.dta saved
+
+{com}. gen month=month(dt)
+
+. save "/Users/isminiethridge/Dropbox/JDS_Data/Global Monthly Avg COVID-19/Input Data/Avg Monthly Temp by Country 2012 clean.dta", replace
+{txt}file /Users/isminiethridge/Dropbox/JDS_Data/Global Monthly Avg COVID-19/Input Data/Avg Monthly Temp by Country 2012 clean.dta saved
+
+{com}. use "/Users/isminiethridge/Dropbox/JDS_Data/Global Monthly Avg COVID-19/Input Data/Global Monthly Avg COVID-19.dta"
+
+. use "/Users/isminiethridge/Dropbox/JDS_Data/Global Monthly Avg COVID-19/Input Data/Avg Monthly Temp by Country 2012 clean.dta"
+
+. rename ISO iso3
+{res}
+{com}. save "/Users/isminiethridge/Dropbox/JDS_Data/Global Monthly Avg COVID-19/Input Data/Avg Monthly Temp by Country 2012 clean.dta", replace
+{txt}file /Users/isminiethridge/Dropbox/JDS_Data/Global Monthly Avg COVID-19/Input Data/Avg Monthly Temp by Country 2012 clean.dta saved
+
+{com}. use "/Users/isminiethridge/Dropbox/JDS_Data/Global Monthly Avg COVID-19/Input Data/Global Monthly Avg COVID-19.dta"
+
+. merge 1:1 iso3 month using "/Users/isminiethridge/Dropbox/JDS_Data/Global Monthly Avg COVID-19/Input Data/Avg Monthly Temp by Country 2012 clean.dta", generate(_merge_temp)
+{res}
+{txt}{col 5}Result{col 38}# of obs.
+{col 5}{hline 41}
+{col 5}not matched{col 30}{res}             579
+{txt}{col 9}from master{col 30}{res}             304{txt}  (_merge_temp==1)
+{col 9}from using{col 30}{res}             275{txt}  (_merge_temp==2)
+
+{col 5}matched{col 30}{res}           2,449{txt}  (_merge_temp==3)
+{col 5}{hline 41}
+
+{com}. sort _merge_temp
+
+. drop if _merge_temp = 2
+{err}=exp not allowed
+{txt}{search r(101), local:r(101);}
+
+{com}. drop if _merge_temp == 2
+{txt}(275 observations deleted)
+
+{com}. drop iso_month
+
+. sort country_un month
+
+. save "/Users/isminiethridge/Dropbox/JDS_Data/Global Monthly Avg COVID-19/Input Data/Global Monthly Avg COVID-19.dta", replace
+{txt}file /Users/isminiethridge/Dropbox/JDS_Data/Global Monthly Avg COVID-19/Input Data/Global Monthly Avg COVID-19.dta saved
+
+{com}. rename country temp_country
+{res}
+{com}. order temp_country, after(iso3)
+
+. drop if month == 13
+{txt}(198 observations deleted)
+
+{com}. save "/Users/isminiethridge/Dropbox/JDS_Data/Global Monthly Avg COVID-19/Input Data/Global Monthly Avg COVID-19.dta", replace
+{txt}(note: file /Users/isminiethridge/Dropbox/JDS_Data/Global Monthly Avg COVID-19/Input Data/Global Monthly Avg COVID-19.dta not found)
+{err}{p 0 4 2}
+file /Users/isminiethridge/Dropbox/JDS_Data/Global Monthly Avg COVID-19/Input Data/Global Monthly Avg COVID-19.dta
+could not be opened
+{p_end}
+{txt}{search r(603), local:r(603);}
+
+{com}. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}/Users/isminiethridge/Dropbox/JDS_Data/Global Data/Code/Monthly Global Averages Covid-19.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}13 Jan 2021, 15:25:40
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}

@@ -1,0 +1,186 @@
+iso,Country,firstday
+CHN,China,0
+THA,Thailand,13
+JPN,Japan,15
+KOR,"Korea, Republic of",20
+TWN,Taiwan,21
+USA,United States,21
+HKG,Hong Kong,23
+VNM,Vietnam,24
+SGP,Singapore,24
+MYS,Malaysia,25
+AUS,Australia,25
+FRA,France,25
+CAN,Canada,26
+ARE,United Arab Emirates,27
+LKA,Sri Lanka,28
+DEU,Germany,28
+IND,India,30
+FIN,Finland,30
+PHL,Philippines,30
+ITA,Italy,31
+GBR,United Kingdom,31
+SWE,Sweden,32
+ESP,Spain,32
+RUS,Russia,32
+BEL,Belgium,35
+EGY,Egypt,46
+IRN,Iran,51
+LBN,Lebanon,53
+ISR,Israel,53
+KWT,Kuwait,55
+BHR,Bahrain,55
+OMN,Oman,56
+IRQ,Iraq,56
+AFG,Afghanistan,56
+BRA,Brazil,57
+HRV,Croatia,57
+CHE,Switzerland,57
+AUT,Austria,57
+DZA,Algeria,57
+PAK,Pakistan,58
+DNK,Denmark,58
+NOR,Norway,58
+ROU,Romania,58
+GRC,Greece,58
+EST,Estonia,59
+NGA,Nigeria,59
+SMR,San Marino,59
+NZL,New Zealand,59
+NLD,Netherlands,59
+AZE,Azerbaijan,60
+ISL,Iceland,60
+MEX,Mexico,60
+LUX,Luxembourg,61
+IRL,Ireland,61
+QAT,Qatar,61
+ECU,Ecuador,61
+DOM,Dominican Republic,62
+CZE,Czechia,62
+IDN,Indonesia,62
+MAR,Morocco,63
+SAU,Saudi Arabia,63
+AND,Andorra,63
+JOR,Jordan,63
+TUN,Tunisia,63
+PRT,Portugal,63
+CHL,Chile,64
+POL,Poland,64
+ARG,Argentina,64
+UKR,Ukraine,64
+HUN,Hungary,65
+SVN,Slovenia,65
+BIH,Bosnia and Herzegovina,66
+PSE,West Bank and Gaza,66
+ZAF,South Africa,66
+CRI,Costa Rica,67
+COL,Colombia,67
+SVK,Slovakia,67
+PER,Peru,67
+CMR,Cameroon,67
+SRB,Serbia,67
+PRY,Paraguay,68
+BGR,Bulgaria,68
+MDA,Moldova,68
+BGD,Bangladesh,69
+ALB,Albania,69
+MNG,Mongolia,70
+PAN,Panama,70
+BRN,Brunei,70
+CYP,Cyprus,70
+COD,"Congo, Democratic Republic of the",71
+BFA,Burkina Faso,71
+BOL,Bolivia,72
+HND,Honduras,72
+CUB,Cuba,72
+TUR,Turkey,72
+JAM,Jamaica,72
+ABW,Aruba,73
+GUY,Guyana,73
+GHA,Ghana,73
+TTO,Trinidad and Tobago,73
+GAB,Gabon,73
+SDN,Sudan,74
+ETH,Ethiopia,74
+KEN,Kenya,74
+SWZ,Eswatini,75
+MRT,Mauritania,75
+RWA,Rwanda,75
+SYC,Seychelles,75
+VEN,Venezuela,75
+NAM,Namibia,75
+GTM,Guatemala,75
+KAZ,Kazakhstan,75
+URY,Uruguay,75
+UZB,Uzbekistan,76
+TZA,Tanzania,77
+GMB,Gambia,78
+BRB,Barbados,78
+SLV,El Salvador,79
+NIC,Nicaragua,79
+DJI,Djibouti,79
+KGZ,Kyrgyzstan,79
+ZMB,Zambia,79
+TCD,Chad,80
+MUS,Mauritius,80
+MDG,Madagascar,81
+CPV,Cabo Verde,81
+NER,Niger,81
+PNG,Papua New Guinea,81
+ZWE,Zimbabwe,81
+UGA,Uganda,82
+AGO,Angola,82
+MOZ,Mozambique,83
+SYR,Syria,83
+DMA,Dominica,83
+MMR,Myanmar,84
+BLZ,Belize,84
+LBY,Libya,85
+LAO,Laos,85
+MLI,Mali,86
+RKS,Kosovo,86
+BDI,Burundi,92
+SLE,Sierra Leone,92
+BWA,Botswana,92
+MWI,Malawi,94
+SSD,South Sudan,97
+BEN,Benin,127
+CAF,Central African Republic,127
+STP,Sao Tome and Principe,127
+VCT,Saint Vincent and the Grenadines,127
+BHS,Bahamas,127
+LCA,Saint Lucia,127
+HTI,Haiti,127
+ARM,Armenia,127
+SUR,Suriname,127
+YEM,Yemen,127
+KHM,Cambodia,127
+ATG,Antigua and Barbuda,127
+MCO,Monaco,127
+LBR,Liberia,127
+TGO,Togo,127
+SEN,Senegal,127
+MKD,North Macedonia,127
+LVA,Latvia,127
+ESH,Western Sahara,127
+NPL,Nepal,127
+LTU,Lithuania,127
+GNB,Guinea-Bissau,127
+KNA,Saint Kitts and Nevis,127
+FJI,Fiji,127
+BTN,Bhutan,127
+CIV,Côte d'Ivoire,127
+GRD,Grenada,127
+COG,Congo,127
+GIN,Guinea,127
+BLR,Belarus,127
+SOM,Somalia,127
+GNQ,Equatorial Guinea,127
+ERI,Eritrea,127
+LIE,Liechtenstein,127
+MNE,Montenegro,127
+TLS,Timor-Leste,127
+MLT,Malta,127
+GEO,Georgia,127
+VAT,Holy See,127
+MDV,Maldives,127

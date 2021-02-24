@@ -1,0 +1,18 @@
+ba1141e5950d84d8aecbf3daa21c7f608a5cfaf2 379530920 ArcGIS Online Tutorial 2.mov
+baaa394a3bbac19fec2965639c2be0974cad72c2 490748098 ArcGIS Tutorial 2.mov
+7dd33bf9150b424bef43ee9af6c4c03c3850771a 126836528 CBP data 2000-2020.shp
+7dd33bf9150b424bef43ee9af6c4c03c3850771a 126836528 County CBP 2000-2018.shp
+7dd33bf9150b424bef43ee9af6c4c03c3850771a 126836528 County CHR and Religion.shp
+7dd33bf9150b424bef43ee9af6c4c03c3850771a 126836528 County CHR_Rel_CBP_Dem.shp
+7dd33bf9150b424bef43ee9af6c4c03c3850771a 126836528 County Data Dec 4.shp
+7dd33bf9150b424bef43ee9af6c4c03c3850771a 126836528 County Masterfil no CBP dec 14.shp
+7dd33bf9150b424bef43ee9af6c4c03c3850771a 126836528 County Religion Data.shp
+7dd33bf9150b424bef43ee9af6c4c03c3850771a 126836528 Covid19_votes_pop_US_Counties.shp
+2e9a5e3aee3454cc28c4b258c3f2a0e734db3303 114335950 Global COVID-19 Data.dta
+22a26ff9423824339a711b843f5ef4cc2ab93878 114088236 Global COVID-19 Data.dta
+40086d0f07dafbcd5fba4584d92247c3eae28fb8 114088236 Global COVID-19_Data_20 Feb 2021.dta
+d8ce33cd181d6932041821cd03d0feffbccb6f8c 219039103 QGIS Adding shapefiles, CSV data, and joins function.mov
+7dd33bf9150b424bef43ee9af6c4c03c3850771a 126836528 Total enrolled students by county.shp
+7dd33bf9150b424bef43ee9af6c4c03c3850771a 126836528 county voting chr religion.shp
+746cf2d848b9cc3cea89698b7748119f3a07900a 145850166 most-recent-cohorts-all-data-elements-1 (1).csv
+7dd33bf9150b424bef43ee9af6c4c03c3850771a 126836528 tl_2017_us_county.shp
