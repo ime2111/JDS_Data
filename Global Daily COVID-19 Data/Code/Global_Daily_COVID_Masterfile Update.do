@@ -182,7 +182,7 @@ sort iso3 day
 
 save "~/Dropbox/JDS_Data/Global Daily COVID-19 Data/Build/Inputs/Processed Data/New_COVID_Data.dta", replace
 use "~/Dropbox/JDS_Data/Global Daily COVID-19 Data/Masterfiles/Global COVID-19 Data.dta"
-merge m:m iso3 using "/Users/isminiethridge/Dropbox/JDS_Data/Global Daily COVID-19 Data/Build/Inputs/Processed Data/New_COVID_Data.dta", generate(_merge_lancet) update replace
+merge m:m iso3 using "~/Dropbox/JDS_Data/Global Daily COVID-19 Data/Build/Inputs/Processed Data/New_COVID_Data.dta", generate(_merge_lancet) update replace
 drop if _merge_lancet == 2
 drop _merge_lancet
 
