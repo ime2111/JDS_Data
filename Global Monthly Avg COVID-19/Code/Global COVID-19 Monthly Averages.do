@@ -6,7 +6,8 @@ order month_num, after(month)
 
 *NOTE: replace month value for 2021 (Jan 2021=month 13, Feb 2021=month14, March 2021=month 15, etc.)
 replace month_num = 13 if day > 366 & day <= 397
-replace month_num = 14 if day > 397
+replace month_num = 14 if day > 397 & day <= 425
+replace month_num = 15 if day > 425 
 
 *clean/format data for collapse
 drop tu
