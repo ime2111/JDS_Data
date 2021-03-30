@@ -11,6 +11,8 @@ save "~/Dropbox/JDS_Data/Global Daily COVID-19 Data/Build/Inputs/Processed Data/
 
 import delimited https://raw.githubusercontent.com/sdsna/lancet-covid-19-database/master/data/database.csv, clear
 gen day=date(date, "YMD")-date("12/31/2019", "MDY")
+replace dt=date(date,"YMD")
+replace month=month(dt)
 order day, after(date)
 
 *rename variables
@@ -186,7 +188,7 @@ merge m:m iso3 using "~/Dropbox/JDS_Data/Global Daily COVID-19 Data/Build/Inputs
 drop if _merge_lancet == 2
 drop _merge_lancet
 
-*fill in missing YouGov data
+*fill in missing YouGov data **maybe this step can be skipped
 sort iso3 day
 foreach var of varlist yg_fc-yg_sif { 
 	bysort iso3: replace `var'fill = `var'fill[_n-1] if `var'fill == . & `var'fill[_n-1] ~= .
