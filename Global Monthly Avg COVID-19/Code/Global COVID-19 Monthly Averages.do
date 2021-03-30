@@ -27,5 +27,5 @@ sort iso3 month_num
 
 drop month 
 
-save "~/Dropbox/JDS_Data/Global Monthly Avg COVID-19/Outputs/Monthly Global COVID-19 Data_$S_DATE.dta", replace
+save "~/Dropbox/JDS_Data/Global Monthly Avg COVID-19/Build/Outputs/Monthly Global COVID-19 Data_$S_DATE.dta", replace
 
